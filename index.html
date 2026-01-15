@@ -25,13 +25,12 @@
             scroll-behavior: smooth;
         }
 
-        /* Contenedores de Página */
         #main-page, #privacy-page {
             display: block;
         }
 
         #privacy-page {
-            display: none; /* Oculto por defecto */
+            display: none; 
             padding: 60px 20px;
             max-width: 800px;
             margin: 0 auto;
@@ -92,29 +91,77 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .bio {
+        /* --- Estilos del Formulario de Contacto --- */
+        .contact-section {
             background-color: #121212;
             padding: 70px 20px;
             text-align: center;
             border-top: 1px solid #222;
         }
 
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dorado);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: #0f0f0f;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .opt-in-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+        }
+
+        .opt-in-box input {
+            width: auto;
+            margin-top: 4px;
+        }
+
         .cta-button {
-            display: inline-block;
+            display: block;
+            width: 100%;
             background-color: var(--dorado);
             color: black;
-            padding: 16px 45px;
+            padding: 16px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
-            margin-top: 30px;
             text-transform: uppercase;
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
         }
 
         .cta-button:hover {
             background-color: #f1c40f;
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         footer {
@@ -170,9 +217,32 @@
             <div class="card"><h3>Gastos Médicos</h3><p>Atención de primer nivel siempre.</p></div>
         </section>
 
-        <section class="bio">
-            <h2>Comienza hoy mismo</h2>
-            <a href="https://wa.me/17542619423" class="cta-button">AGENDAR CONSULTA</a>
+        <section class="contact-section">
+            <h2>Solicita tu Consultoría Gratuita</h2>
+            <div class="contact-form">
+                <form action="#">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Ej. Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Número de Teléfono</label>
+                        <input type="tel" placeholder="+1 (754) 000-0000" required>
+                    </div>
+                    
+                    <div class="opt-in-box">
+                        <input type="checkbox" id="sms-optin" required>
+                        <label for="sms-optin">
+                            Acepto recibir mensajes de texto (SMS) de Manuel Hernández | UNTD Financial Group para fines de asesoría y recordatorios. Entiendo que se pueden aplicar tarifas de mensajes y datos. Puede cancelar enviando STOP.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="cta-button" style="margin-top: 20px;">Enviar Solicitud</button>
+                </form>
+                <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; color: #555;">
+                    O contáctame directamente por <a href="https://wa.me/17542619423" style="color: var(--dorado);">WhatsApp</a>
+                </p>
+            </div>
         </section>
     </div>
 
@@ -183,14 +253,14 @@
             <p>Última actualización: <span class="current-year-text"></span></p>
             
             <h3>1. Recopilación de Información</h3>
-            <p>En el sitio de Manuel Hernández (Protege Tu Vida), recopilamos información personal básica como nombre, correo electrónico y teléfono únicamente cuando usted solicita una asesoría financiera voluntariamente.</p>
+            <p>En el sitio de Manuel Hernández (Protege Tu Vida), recopilamos información personal básica como nombre, correo electrónico y teléfono únicamente cuando usted solicita una asesoría financiera voluntariamente a través de nuestro formulario.</p>
 
             <h3>2. Uso de los Datos</h3>
             <p>Sus datos son utilizados exclusivamente para:
                 <ul>
                     <li>Brindar asesoría personalizada sobre seguros y planes de retiro.</li>
                     <li>Enviar información relevante sobre UNTD Financial Group.</li>
-                    <li>Mejorar nuestros servicios de atención al cliente.</li>
+                    <li>Notificaciones de seguimiento y recordatorios vía SMS o llamada.</li>
                 </ul>
             </p>
 
@@ -198,7 +268,10 @@
             <p>Implementamos medidas de seguridad digitales para asegurar que su información personal esté protegida contra acceso no autorizado o divulgación.</p>
 
             <h3>4. Compartición con Terceros</h3>
-            <p>No vendemos ni alquilamos sus datos personales. La información solo se comparte con aseguradoras aliadas para la cotización formal de sus servicios, siempre bajo su consentimiento.</p>
+            <p>No vendemos ni alquilamos sus datos personales.</p>
+
+            <h3>5. Política de Mensajería SMS (A2P Compliance)</h3>
+            <p>Al proporcionarnos su número de teléfono, usted acepta recibir mensajes de texto (SMS) de Manuel Hernández | UNTD Financial Group. La información móvil no se compartirá con terceros o afiliados con fines de marketing o promocionales. Todas las categorías anteriores excluyen los datos de consentimiento del originador de mensajes de texto; esta información no será compartida con terceros.</p>
         </div>
     </div>
 
@@ -211,7 +284,6 @@
     </footer>
 
     <script>
-        // Función para cambiar entre secciones
         function showPage(page) {
             if (page === 'main') {
                 document.getElementById('main-page').style.display = 'block';
@@ -224,7 +296,6 @@
             }
         }
 
-        // Año dinámico
         const currentYear = new Date().getFullYear();
         document.getElementById("year").textContent = currentYear;
         document.querySelectorAll(".current-year-text").forEach(el => el.textContent = currentYear);
