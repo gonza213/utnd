@@ -142,9 +142,13 @@
         <p>Recibe una asesoría personalizada y adaptada a tus metas financieras actuales.</p>
         <a href="https://wa.me/17542619423" class="cta-button">AGENDAR CONSULTA GRATUITA</a>
     </section>
-
-    <footer>
-        <p>&copy; 2024 UNTD Financial Group. Todos los derechos reservados.</p>
+<footer>
+        <p>&copy; <span id="year"></span> UNTD Financial Group. Todos los derechos reservados.</p>
+        
+        <script>
+            // Esta función obtiene el año actual y lo inserta en el HTML
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
     </footer>
 
 </body>
