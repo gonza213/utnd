@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
     <title>Manuel Hernández | UNTD Financial Group</title>
+    
+    <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
+
     <style>
         :root {
             --dorado: #d4af37;
             --oscuro: #0f0f0f;
             --gris-texto: #a0a0a0;
+            --card-bg: #1a1a1a;
         }
 
         body {
@@ -19,6 +22,19 @@
             background-color: var(--oscuro);
             color: white;
             line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Contenedores de Página */
+        #main-page, #privacy-page {
+            display: block;
+        }
+
+        #privacy-page {
+            display: none; /* Oculto por defecto */
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         header {
@@ -28,8 +44,10 @@
         }
 
         .logo {
-            max-width: 280px;
+            max-width: 250px;
             margin-bottom: 20px;
+            filter: drop-shadow(0px 5px 15px rgba(212, 175, 55, 0.2));
+            cursor: pointer;
         }
 
         .intro {
@@ -39,11 +57,10 @@
             padding: 20px;
         }
 
-        h1 {
+        h1, h2 {
             color: var(--dorado);
-            font-size: 2.2rem;
-            margin-bottom: 5px;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .subtitle {
@@ -52,105 +69,166 @@
             margin-bottom: 30px;
         }
 
-        /* Sección de Servicios basada en el sitio web */
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
         .card {
-            background: #1a1a1a;
-            padding: 30px;
-            border-radius: 10px;
-            border-bottom: 3px solid var(--dorado);
-            transition: transform 0.3s ease;
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            border-bottom: 4px solid var(--dorado);
+            transition: all 0.3s ease;
+            text-align: center;
         }
 
         .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .card h3 {
-            color: var(--dorado);
-            margin-top: 0;
-        }
-
-        /* Información de Manuel */
         .bio {
-            background-color: #151515;
-            padding: 50px 20px;
+            background-color: #121212;
+            padding: 70px 20px;
             text-align: center;
+            border-top: 1px solid #222;
         }
 
         .cta-button {
             display: inline-block;
             background-color: var(--dorado);
             color: black;
-            padding: 15px 40px;
+            padding: 16px 45px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             margin-top: 30px;
-            transition: background 0.3s;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
 
         .cta-button:hover {
             background-color: #f1c40f;
+            transform: scale(1.05);
         }
 
         footer {
             padding: 40px;
             text-align: center;
-            font-size: 0.9rem;
-            color: #555;
+            font-size: 0.85rem;
+            color: #666;
+            background: #0a0a0a;
+        }
+
+        footer a {
+            color: var(--dorado);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .policy-content {
+            text-align: left;
+            color: var(--gris-texto);
+        }
+
+        .policy-content h3 {
+            color: white;
+            margin-top: 30px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--dorado);
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" alt="UNTD Financial Group" class="logo">
-        <h1>Manuel Hernández</h1>
-        <p class="subtitle">Agente de Seguros | Protege Tu Vida</p>
-    </header>
+    <div id="main-page">
+        <header>
+            <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" alt="UNTD Financial Group" class="logo" onclick="showPage('main')">
+            <h1>Manuel Hernández</h1>
+            <p class="subtitle">Agente de Seguros | Protege Tu Vida</p>
+        </header>
 
-    <section class="intro">
-        <h2>Asesoría Financiera Patrimonial</h2>
-        <p>Especialista en soluciones integrales para proteger lo que más importa: tu familia y tu futuro financiero.</p>
-    </section>
+        <section class="intro">
+            <h2>Asesoría Financiera Patrimonial</h2>
+            <p>Especialista en proteger lo que más importa bajo el respaldo de UNTD Financial Group.</p>
+        </section>
 
-    <section class="services">
-        <div class="card">
-            <h3>Seguros de Vida</h3>
-            <p>Garantiza la tranquilidad y el respaldo económico de tus seres queridos en cualquier circunstancia.</p>
-        </div>
-        <div class="card">
-            <h3>Planes de Retiro</h3>
-            <p>Diseñamos estrategias para que disfrutes de una jubilación digna y con libertad financiera.</p>
-        </div>
-        <div class="card">
-            <h3>Gastos Médicos</h3>
-            <p>Protección ante imprevistos de salud con acceso a las mejores instituciones médicas.</p>
-        </div>
-    </section>
+        <section class="services">
+            <div class="card"><h3>Seguros de Vida</h3><p>Garantía económica para tu familia.</p></div>
+            <div class="card"><h3>Planes de Retiro</h3><p>Libertad financiera para tu futuro.</p></div>
+            <div class="card"><h3>Gastos Médicos</h3><p>Atención de primer nivel siempre.</p></div>
+        </section>
 
-    <section class="bio">
-        <h2>¿Listo para empezar?</h2>
-        <p>Recibe una asesoría personalizada y adaptada a tus metas financieras actuales.</p>
-        <a href="https://wa.me/17542619423" class="cta-button">AGENDAR CONSULTA GRATUITA</a>
-    </section>
-<footer>
+        <section class="bio">
+            <h2>Comienza hoy mismo</h2>
+            <a href="https://wa.me/17542619423" class="cta-button">AGENDAR CONSULTA</a>
+        </section>
+    </div>
+
+    <div id="privacy-page">
+        <a href="#" class="back-link" onclick="showPage('main')">← Volver al Inicio</a>
+        <h1>Políticas de Privacidad</h1>
+        <div class="policy-content">
+            <p>Última actualización: <span class="current-year-text"></span></p>
+            
+            <h3>1. Recopilación de Información</h3>
+            <p>En el sitio de Manuel Hernández (Protege Tu Vida), recopilamos información personal básica como nombre, correo electrónico y teléfono únicamente cuando usted solicita una asesoría financiera voluntariamente.</p>
+
+            <h3>2. Uso de los Datos</h3>
+            <p>Sus datos son utilizados exclusivamente para:
+                <ul>
+                    <li>Brindar asesoría personalizada sobre seguros y planes de retiro.</li>
+                    <li>Enviar información relevante sobre UNTD Financial Group.</li>
+                    <li>Mejorar nuestros servicios de atención al cliente.</li>
+                </ul>
+            </p>
+
+            <h3>3. Protección de la Información</h3>
+            <p>Implementamos medidas de seguridad digitales para asegurar que su información personal esté protegida contra acceso no autorizado o divulgación.</p>
+
+            <h3>4. Compartición con Terceros</h3>
+            <p>No vendemos ni alquilamos sus datos personales. La información solo se comparte con aseguradoras aliadas para la cotización formal de sus servicios, siempre bajo su consentimiento.</p>
+        </div>
+    </div>
+
+    <footer>
         <p>&copy; <span id="year"></span> UNTD Financial Group. Todos los derechos reservados.</p>
-        
-        <script>
-            // Esta función obtiene el año actual y lo inserta en el HTML
-            document.getElementById("year").textContent = new Date().getFullYear();
-        </script>
+        <p>
+            <a href="#" onclick="showPage('main')">Inicio</a> | 
+            <a href="#" onclick="showPage('privacy')">Políticas de Privacidad</a>
+        </p>
     </footer>
+
+    <script>
+        // Función para cambiar entre secciones
+        function showPage(page) {
+            if (page === 'main') {
+                document.getElementById('main-page').style.display = 'block';
+                document.getElementById('privacy-page').style.display = 'none';
+                window.scrollTo(0,0);
+            } else {
+                document.getElementById('main-page').style.display = 'none';
+                document.getElementById('privacy-page').style.display = 'block';
+                window.scrollTo(0,0);
+            }
+        }
+
+        // Año dinámico
+        const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent = currentYear;
+        document.querySelectorAll(".current-year-text").forEach(el => el.textContent = currentYear);
+    </script>
 
 </body>
 </html>
