@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Políticas de Privacidad | UNTD Financial Group</title>
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.untd.site/privacy.html" />
+
+  <style>
+    :root {
+      --dorado: #d4af37;
+      --oscuro: #0f0f0f;
+      --gris-texto: #a0a0a0;
+      --card-bg: #1a1a1a;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--oscuro);
+      color: #fff;
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background: radial-gradient(circle, #1a1a1a 0%, #0f0f0f 100%);
+      border-bottom: 1px solid #222;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--dorado);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 26px;
+      border-bottom: 4px solid var(--dorado);
+    }
+
+    h2, h3 {
+      color: #fff;
+      margin-top: 26px;
+    }
+
+    p, li {
+      color: var(--gris-texto);
+    }
+
+    a {
+      color: var(--dorado);
+      text-decoration: none;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 16px;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      color: #666;
+      background: #0a0a0a;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Políticas de Privacidad</h1>
+    <a class="back" href="/">← Volver al inicio</a>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <p>Última actualización: <span id="year"></span></p>
+
+      <h3>1. Recopilación de Información</h3>
+      <p>
+        Este sitio es informativo. Solo recopilamos información personal si usted nos contacta voluntariamente
+        por WhatsApp, llamada telefónica o correo electrónico.
+      </p>
+
+      <h3>2. Uso de los Datos</h3>
+      <p>La información compartida se utiliza exclusivamente para:</p>
+      <ul>
+        <li>Responder consultas sobre seguros y planes de retiro.</li>
+        <li>Coordinar seguimiento y brindar información solicitada.</li>
+      </ul>
+
+      <h3>3. Protección de la Información</h3>
+      <p>
+        Aplicamos medidas razonables para proteger la información contra acceso no autorizado.
+      </p>
+
+      <h3>4. Compartición con Terceros</h3>
+      <p>
+        No vendemos ni alquilamos datos personales. Podemos compartir información únicamente si es requerido por ley
+        o para gestionar una solicitud del usuario con el proveedor correspondiente.
+      </p>
+
+      <h3>5. Mensajería y Contacto</h3>
+      <p>
+        Si usted nos contacta por WhatsApp, llamada o email, acepta recibir respuesta por el canal utilizado.
+        No solicitamos contraseñas ni datos bancarios o de tarjetas por este sitio.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© <span class="y"></span> UNTD Financial Group.</p>
+  </footer>
+
+  <script>
+    const y = new Date().getFullYear();
+    document.getElementById("year").textContent = y;
+    document.querySelectorAll(".y").forEach(el => el.textContent = y);
+  </script>
+</body>
+</html>
