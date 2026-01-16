@@ -1,305 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel Hernández | UNTD Financial Group</title>
-    
-    <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-        :root {
-            --dorado: #d4af37;
-            --oscuro: #0f0f0f;
-            --gris-texto: #a0a0a0;
-            --card-bg: #1a1a1a;
-        }
+  <title>Manuel Hernández | UNTD Financial Group</title>
+  <meta name="description" content="Asesoría financiera patrimonial y seguros. Consultas por WhatsApp, teléfono o email. Sitio informativo." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://www.untd.site/" />
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--oscuro);
-            color: white;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+  <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
 
-        #main-page, #privacy-page {
-            display: block;
-        }
+  <style>
+    :root {
+      --dorado: #d4af37;
+      --oscuro: #0f0f0f;
+      --gris-texto: #a0a0a0;
+      --card-bg: #1a1a1a;
+    }
 
-        #privacy-page {
-            display: none; 
-            padding: 60px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: var(--oscuro);
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: radial-gradient(circle, #1a1a1a 0%, #0f0f0f 100%);
-        }
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: radial-gradient(circle, #1a1a1a 0%, #0f0f0f 100%);
+    }
 
-        .logo {
-            max-width: 250px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0px 5px 15px rgba(212, 175, 55, 0.2));
-            cursor: pointer;
-        }
+    .logo {
+      max-width: 250px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0px 5px 15px rgba(212, 175, 55, 0.2));
+    }
 
-        .intro {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 20px;
-        }
+    .intro {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+    }
 
-        h1, h2 {
-            color: var(--dorado);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+    h1, h2 {
+      color: var(--dorado);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--gris-texto);
-            margin-bottom: 30px;
-        }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--gris-texto);
+      margin-bottom: 12px;
+    }
 
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    .trust {
+      max-width: 760px;
+      margin: 10px auto 0;
+      padding: 10px 14px;
+      color: #c9c9c9;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
 
-        .card {
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 12px;
-            border-bottom: 4px solid var(--dorado);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+    .card {
+      background: var(--card-bg);
+      padding: 35px;
+      border-radius: 12px;
+      border-bottom: 4px solid var(--dorado);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
 
-        /* --- Estilos del Formulario de Contacto --- */
-        .contact-section {
-            background-color: #121212;
-            padding: 70px 20px;
-            text-align: center;
-            border-top: 1px solid #222;
-        }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
 
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: left;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-        }
+    .contact-section {
+      background-color: #121212;
+      padding: 70px 20px;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+    .contact-card {
+      max-width: 650px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 28px;
+      border-radius: 12px;
+      text-align: left;
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--dorado);
-        }
+    .contact-card p {
+      margin: 10px 0;
+      color: #d9d9d9;
+    }
 
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            background: #0f0f0f;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
+    .cta-button {
+      display: inline-block;
+      background-color: var(--dorado);
+      color: black;
+      padding: 14px 22px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 50px;
+      text-transform: uppercase;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 12px;
+    }
 
-        .opt-in-box {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-top: 15px;
-            font-size: 0.85rem;
-            color: var(--gris-texto);
-        }
+    .cta-button:hover {
+      background-color: #f1c40f;
+      transform: scale(1.02);
+    }
 
-        .opt-in-box input {
-            width: auto;
-            margin-top: 4px;
-        }
+    .small {
+      font-size: 0.9rem;
+      color: #8a8a8a;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
 
-        .cta-button {
-            display: block;
-            width: 100%;
-            background-color: var(--dorado);
-            color: black;
-            padding: 16px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            text-transform: uppercase;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            font-size: 1rem;
-        }
+    a {
+      color: var(--dorado);
+      text-decoration: none;
+    }
 
-        .cta-button:hover {
-            background-color: #f1c40f;
-            transform: scale(1.02);
-        }
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      background: #0a0a0a;
+    }
 
-        footer {
-            padding: 40px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #666;
-            background: #0a0a0a;
-        }
-
-        footer a {
-            color: var(--dorado);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .policy-content {
-            text-align: left;
-            color: var(--gris-texto);
-        }
-
-        .policy-content h3 {
-            color: white;
-            margin-top: 30px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--dorado);
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+    footer a {
+      color: var(--dorado);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg"
+         alt="UNTD Financial Group" class="logo">
 
-    <div id="main-page">
-        <header>
-            <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" alt="UNTD Financial Group" class="logo" onclick="showPage('main')">
-            <h1>Manuel Hernández</h1>
-            <p class="subtitle">Agente de Seguros | Protege Tu Vida</p>
-        </header>
+    <h1>Manuel Hernández</h1>
+    <p class="subtitle">Agente de Seguros | Protege Tu Vida</p>
 
-        <section class="intro">
-            <h2>Asesoría Financiera Patrimonial</h2>
-            <p>Especialista en proteger lo que más importa bajo el respaldo de UNTD Financial Group.</p>
-        </section>
+    <p class="trust">
+      Sitio informativo. No solicitamos contraseñas, datos bancarios ni números de tarjeta por este sitio.
+      Para consultas, usá los canales oficiales de contacto.
+    </p>
+  </header>
 
-        <section class="services">
-            <div class="card"><h3>Seguros de Vida</h3><p>Garantía económica para tu familia.</p></div>
-            <div class="card"><h3>Planes de Retiro</h3><p>Libertad financiera para tu futuro.</p></div>
-            <div class="card"><h3>Gastos Médicos</h3><p>Atención de primer nivel siempre.</p></div>
-        </section>
+  <section class="intro">
+    <h2>Asesoría Financiera Patrimonial</h2>
+    <p>Especialista en proteger lo que más importa bajo el respaldo de UNTD Financial Group.</p>
+  </section>
 
-        <section class="contact-section">
-            <h2>Solicita tu Consultoría Gratuita</h2>
-            <div class="contact-form">
-                <form action="#">
-                    <div class="form-group">
-                        <label>Nombre Completo</label>
-                        <input type="text" placeholder="Ej. Juan Pérez" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Número de Teléfono</label>
-                        <input type="tel" placeholder="+1 (754) 000-0000" required>
-                    </div>
-                    
-                    <div class="opt-in-box">
-                        <input type="checkbox" id="sms-optin" required>
-                        <label for="sms-optin">
-                            Acepto recibir mensajes de texto (SMS) de Manuel Hernández | UNTD Financial Group para fines de asesoría y recordatorios. Entiendo que se pueden aplicar tarifas de mensajes y datos. Puede cancelar enviando STOP.
-                        </label>
-                    </div>
-
-                    <button type="submit" class="cta-button" style="margin-top: 20px;">Enviar Solicitud</button>
-                </form>
-                <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; color: #555;">
-                    O contáctame directamente por <a href="https://wa.me/17542619423" style="color: var(--dorado);">WhatsApp</a>
-                </p>
-            </div>
-        </section>
+  <section class="services">
+    <div class="card">
+      <h3>Seguros de Vida</h3>
+      <p>Protección y respaldo económico para tu familia.</p>
     </div>
-
-    <div id="privacy-page">
-        <a href="#" class="back-link" onclick="showPage('main')">← Volver al Inicio</a>
-        <h1>Políticas de Privacidad</h1>
-        <div class="policy-content">
-            <p>Última actualización: <span class="current-year-text"></span></p>
-            
-            <h3>1. Recopilación de Información</h3>
-            <p>En el sitio de Manuel Hernández (Protege Tu Vida), recopilamos información personal básica como nombre, correo electrónico y teléfono únicamente cuando usted solicita una asesoría financiera voluntariamente a través de nuestro formulario.</p>
-
-            <h3>2. Uso de los Datos</h3>
-            <p>Sus datos son utilizados exclusivamente para:
-                <ul>
-                    <li>Brindar asesoría personalizada sobre seguros y planes de retiro.</li>
-                    <li>Enviar información relevante sobre UNTD Financial Group.</li>
-                    <li>Notificaciones de seguimiento y recordatorios vía SMS o llamada.</li>
-                </ul>
-            </p>
-
-            <h3>3. Protección de la Información</h3>
-            <p>Implementamos medidas de seguridad digitales para asegurar que su información personal esté protegida contra acceso no autorizado o divulgación.</p>
-
-            <h3>4. Compartición con Terceros</h3>
-            <p>No vendemos ni alquilamos sus datos personales.</p>
-
-            <h3>5. Política de Mensajería SMS (A2P Compliance)</h3>
-            <p>Al proporcionarnos su número de teléfono, usted acepta recibir mensajes de texto (SMS) de Manuel Hernández | UNTD Financial Group. La información móvil no se compartirá con terceros o afiliados con fines de marketing o promocionales. Todas las categorías anteriores excluyen los datos de consentimiento del originador de mensajes de texto; esta información no será compartida con terceros.</p>
-        </div>
+    <div class="card">
+      <h3>Planes de Retiro</h3>
+      <p>Planificación para tu futuro y tu tranquilidad financiera.</p>
     </div>
+    <div class="card">
+      <h3>Gastos Médicos</h3>
+      <p>Coberturas y opciones según tus necesidades.</p>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; <span id="year"></span> UNTD Financial Group. Todos los derechos reservados.</p>
-        <p>
-            <a href="#" onclick="showPage('main')">Inicio</a> | 
-            <a href="#" onclick="showPage('privacy')">Políticas de Privacidad</a>
-        </p>
-    </footer>
+  <section class="contact-section">
+    <h2>Contacto</h2>
 
-    <script>
-        function showPage(page) {
-            if (page === 'main') {
-                document.getElementById('main-page').style.display = 'block';
-                document.getElementById('privacy-page').style.display = 'none';
-                window.scrollTo(0,0);
-            } else {
-                document.getElementById('main-page').style.display = 'none';
-                document.getElementById('privacy-page').style.display = 'block';
-                window.scrollTo(0,0);
-            }
-        }
+    <div class="contact-card">
+      <p><b>WhatsApp:</b> <a href="https://wa.me/17542619423" target="_blank" rel="noopener">Enviar mensaje</a></p>
+      <p><b>Teléfono:</b> +1 (754) 261-9423</p>
 
-        const currentYear = new Date().getFullYear();
-        document.getElementById("year").textContent = currentYear;
-        document.querySelectorAll(".current-year-text").forEach(el => el.textContent = currentYear);
-    </script>
+      <!-- Recomendado: creá este email real (aunque sea un alias) -->
+      <p><b>Email:</b> <a href="mailto:contacto@untd.site">contacto@untd.site</a></p>
 
+      <a class="cta-button" href="https://wa.me/17542619423" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+
+      <p class="small">
+        Al contactarme, aceptás recibir respuesta por los medios que elijas (WhatsApp, llamada o email).
+        <br />
+        Ver políticas: <a href="/privacy.html">Políticas de Privacidad</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> UNTD Financial Group. Todos los derechos reservados.</p>
+    <p>
+      <a href="/privacy.html">Políticas de Privacidad</a>
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
