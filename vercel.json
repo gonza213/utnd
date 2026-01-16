@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "untd.site" }],
+      "destination": "https://www.untd.site/$1",
+      "permanent": true
+    }
+  ]
+}
