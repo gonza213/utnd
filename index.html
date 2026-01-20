@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Manuel Hernández | UNTD Financial Group</title>
-  <meta name="description" content="Asesoría financiera patrimonial y seguros. Consultas por WhatsApp, teléfono o email. Sitio informativo." />
+  <meta name="description" content="Asesoría financiera patrimonial y seguros. Consultas informativas. Sitio oficial de UNTD Financial Group." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://www.untd.site/" />
 
@@ -41,17 +41,10 @@
       filter: drop-shadow(0px 5px 15px rgba(212, 175, 55, 0.2));
     }
 
-    .intro {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 20px;
-    }
-
-    h1, h2 {
+    h1, h2, h3 {
       color: var(--dorado);
-      letter-spacing: 1px;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .subtitle {
@@ -66,7 +59,6 @@
       padding: 10px 14px;
       color: #c9c9c9;
       font-size: 0.95rem;
-      opacity: 0.95;
     }
 
     .services {
@@ -83,20 +75,14 @@
       padding: 35px;
       border-radius: 12px;
       border-bottom: 4px solid var(--dorado);
-      transition: all 0.3s ease;
       text-align: center;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     .contact-section {
       background-color: #121212;
       padding: 70px 20px;
-      text-align: center;
       border-top: 1px solid #222;
+      text-align: center;
     }
 
     .contact-card {
@@ -108,11 +94,6 @@
       text-align: left;
     }
 
-    .contact-card p {
-      margin: 10px 0;
-      color: #d9d9d9;
-    }
-
     .cta-button {
       display: inline-block;
       background-color: var(--dorado);
@@ -121,30 +102,15 @@
       text-decoration: none;
       font-weight: bold;
       border-radius: 50px;
+      margin-top: 15px;
       text-transform: uppercase;
-      transition: 0.3s;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 12px;
-    }
-
-    .cta-button:hover {
-      background-color: #f1c40f;
-      transform: scale(1.02);
     }
 
     .small {
       font-size: 0.9rem;
       color: #8a8a8a;
-      margin-top: 14px;
+      margin-top: 15px;
       line-height: 1.5;
-    }
-
-    a {
-      color: var(--dorado);
-      text-decoration: none;
     }
 
     footer {
@@ -158,74 +124,70 @@
     footer a {
       color: var(--dorado);
       text-decoration: none;
-      margin: 0 10px;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg"
-         alt="UNTD Financial Group" class="logo">
 
-    <h1>Manuel Hernández</h1>
-    <p class="subtitle">Agente de Seguros | Protege Tu Vida</p>
+<header>
+  <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg"
+       alt="UNTD Financial Group" class="logo">
 
-    <p class="trust">
-      Sitio informativo. No solicitamos contraseñas, datos bancarios ni números de tarjeta por este sitio.
-      Para consultas, usá los canales oficiales de contacto.
+  <h1>Manuel Hernández</h1>
+  <p class="subtitle">Agente de Seguros | UNTD Financial Group</p>
+
+  <p class="trust">
+    Sitio informativo. No solicitamos contraseñas, datos bancarios ni información sensible por este medio.
+  </p>
+</header>
+
+<section class="services">
+  <div class="card">
+    <h3>Seguros de Vida</h3>
+    <p>Protección financiera para tu familia.</p>
+  </div>
+  <div class="card">
+    <h3>Planes de Retiro</h3>
+    <p>Planificación para un futuro estable.</p>
+  </div>
+  <div class="card">
+    <h3>Gastos Médicos</h3>
+    <p>Opciones de cobertura según tus necesidades.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <h2>Contacto</h2>
+
+  <div class="contact-card">
+    <p><b>WhatsApp:</b> <a href="https://wa.me/17542619423" target="_blank">Enviar mensaje</a></p>
+    <p><b>Teléfono:</b> +1 (754) 261-9423</p>
+    <p><b>Email:</b> <a href="mailto:info@untd.site">info@untd.site</a></p>
+
+    <a class="cta-button" href="https://wa.me/17542619423" target="_blank">Escribir por WhatsApp</a>
+
+    <!-- 🔐 BLOQUE A2P CRÍTICO -->
+    <p class="small">
+      Al enviar tu información o contactarte por este sitio, aceptás recibir mensajes SMS informativos
+      de UNTD Financial Group relacionados con tu consulta, incluyendo confirmaciones y seguimientos.
+      Pueden aplicar tarifas de mensajes y datos. La frecuencia de mensajes puede variar.
+      Podés cancelar en cualquier momento respondiendo STOP.
     </p>
-  </header>
 
-  <section class="intro">
-    <h2>Asesoría Financiera Patrimonial</h2>
-    <p>Especialista en proteger lo que más importa bajo el respaldo de UNTD Financial Group.</p>
-  </section>
-
-  <section class="services">
-    <div class="card">
-      <h3>Seguros de Vida</h3>
-      <p>Protección y respaldo económico para tu familia.</p>
-    </div>
-    <div class="card">
-      <h3>Planes de Retiro</h3>
-      <p>Planificación para tu futuro y tu tranquilidad financiera.</p>
-    </div>
-    <div class="card">
-      <h3>Gastos Médicos</h3>
-      <p>Coberturas y opciones según tus necesidades.</p>
-    </div>
-  </section>
-
-  <section class="contact-section">
-    <h2>Contacto</h2>
-
-    <div class="contact-card">
-      <p><b>WhatsApp:</b> <a href="https://wa.me/17542619423" target="_blank" rel="noopener">Enviar mensaje</a></p>
-      <p><b>Teléfono:</b> +1 (754) 261-9423</p>
-
-      <!-- Recomendado: creá este email real (aunque sea un alias) -->
-      <p><b>Email:</b> <a href="mailto:contacto@untd.site">info@untd.site</a></p>
-
-      <a class="cta-button" href="https://wa.me/17542619423" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-
-      <p class="small">
-        Al contactarme, aceptás recibir respuesta por los medios que elijas (WhatsApp, llamada o email).
-        <br />
-        Ver políticas: <a href="/privacy.html">Políticas de Privacidad</a>
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© <span id="year"></span> UNTD Financial Group. Todos los derechos reservados.</p>
-    <p>
-      <a href="/privacy.html">Políticas de Privacidad</a>
+    <p class="small">
+      <a href="/privacy.html">Política de Privacidad</a>
     </p>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<footer>
+  <p>© <span id="year"></span> UNTD Financial Group. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
