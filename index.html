@@ -5,170 +5,557 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Manuel Hernández | UNTD Financial Group</title>
-  <meta name="description" content="Asesoría financiera patrimonial y seguros. Consultas informativas. Sitio oficial de UNTD Financial Group." />
+  <meta name="description" content="Asesoría patrimonial y seguros. Información y coordinación de contacto. Sitio oficial." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://www.untd.site/" />
+  <link rel="canonical" href="https://untd.site/" />
 
   <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
 
   <style>
-    :root {
-      --dorado: #d4af37;
-      --oscuro: #0f0f0f;
-      --gris-texto: #a0a0a0;
-      --card-bg: #1a1a1a;
+    :root{
+      --bg:#0b0b0e;
+      --bg2:#0f0f13;
+      --card:#141419;
+      --card2:#101015;
+      --text:#f5f5f7;
+      --muted:#b7b7bd;
+      --muted2:#8c8c95;
+      --gold:#d4af37;
+      --gold2:#f1c40f;
+      --line:#24242b;
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
+      --radius:16px;
     }
 
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: var(--oscuro);
-      color: white;
-      line-height: 1.6;
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(212,175,55,.18), transparent 55%),
+        radial-gradient(900px 500px at 80% 0%, rgba(241,196,15,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 60%, #09090c 100%);
+      color:var(--text);
+      line-height:1.6;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
+    a{ color:var(--gold); text-decoration:none; }
+    a:hover{ color:var(--gold2); }
+
+    .wrap{ max-width:1100px; margin:0 auto; padding: 22px; }
+
+    /* Top bar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,11,14,.55);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .topbar .wrap{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 22px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
+    }
+    .brand img{
+      width:38px; height:38px; border-radius:10px;
+      object-fit:cover;
+      box-shadow: 0 8px 25px rgba(212,175,55,.18);
+      border: 1px solid rgba(212,175,55,.22);
+    }
+    .brand .t1{ font-weight:800; letter-spacing:.6px; }
+    .brand .t2{ font-size:.82rem; color:var(--muted2); margin-top:2px; }
+
+    .nav{
+      display:flex; gap:14px; align-items:center;
+    }
+    .nav a{
+      color: var(--muted);
+      font-size: .95rem;
+      padding: 10px 12px;
+      border-radius: 12px;
+    }
+    .nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
     }
 
-    .logo {
-      max-width: 250px;
-      margin-bottom: 20px;
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,.35);
+      background: linear-gradient(180deg, rgba(212,175,55,.18), rgba(212,175,55,.08));
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing:.4px;
+      cursor:pointer;
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      text-decoration:none;
+      white-space:nowrap;
     }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(241,196,15,.55);
+      background: linear-gradient(180deg, rgba(241,196,15,.24), rgba(212,175,55,.10));
+    }
+    .btn.primary{
+      border: none;
+      color: #121212;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      box-shadow: 0 14px 40px rgba(212,175,55,.18);
+    }
+    .btn.primary:hover{ transform: translateY(-1px); }
 
-    h1, h2, h3 {
-      color: var(--dorado);
+    /* Hero */
+    .hero{
+      padding: 44px 0 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+    .hero h1{
+      margin: 6px 0 10px;
+      font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+      letter-spacing:.8px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      color: var(--gold);
+    }
+    .subtitle{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .trust{
+      margin: 14px 0 0;
+      padding: 14px 14px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.06);
+      color: #d3d3d8;
+      font-size: .95rem;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top: 18px;
     }
 
-    .subtitle {
-      color: var(--gris-texto);
+    .quick{
+      display:grid; gap:12px;
+      height:100%;
+    }
+    .quick .qcard{
+      background: linear-gradient(180deg, rgba(20,20,25,.85), rgba(16,16,21,.65));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .qtitle{ font-weight:800; letter-spacing:.4px; margin:0 0 8px; color: var(--gold); text-transform: uppercase; font-size:.95rem;}
+    .qline{ margin: 0; color: var(--muted); font-size:.95rem; }
+    .qline b{ color: var(--text); font-weight:700; }
+
+    /* Services */
+    .section-title{
+      margin: 34px 0 14px;
+      font-size: 1.2rem;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .services{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transition: transform .18s ease, border-color .2s ease, background .2s ease;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(212,175,55,.25);
+      background: linear-gradient(180deg, rgba(212,175,55,.08), rgba(255,255,255,.02));
+    }
+    .card h3{
+      margin: 0 0 6px;
+      color: var(--text);
+      font-size: 1.05rem;
+      letter-spacing: .4px;
+    }
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 12px;
+      background: rgba(0,0,0,.18);
     }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+    /* Contact / A2P */
+    .contact{
+      margin: 26px 0 40px;
+      padding: 22px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(20,20,25,.85), rgba(14,14,18,.65));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .contact h2{
+      margin: 0 0 6px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing:.8px;
+      font-size: 1.2rem;
+    }
+    .contact .hint{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: .95rem;
     }
 
-    .card {
-      background: var(--card-bg);
-      padding: 30px;
+    .form{
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    label{
+      display:block;
+      font-size: .9rem;
+      color: #d7d7dc;
+      margin-bottom: 6px;
+    }
+    input[type="tel"]{
+      width:100%;
+      padding: 12px 12px;
       border-radius: 12px;
-      text-align: center;
-      border-bottom: 4px solid var(--dorado);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(10,10,12,.65);
+      color: var(--text);
+      outline:none;
+      transition: border-color .2s ease, box-shadow .2s ease;
     }
-
-    .contact-section {
-      padding: 70px 20px;
-      background-color: #121212;
-      border-top: 1px solid #222;
-      text-align: center;
+    input[type="tel"]:focus{
+      border-color: rgba(212,175,55,.55);
+      box-shadow: 0 0 0 4px rgba(212,175,55,.12);
     }
+    .consent{
+      margin-top: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.22);
+      color: #cfcfd6;
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+    .consent a{ font-weight: 700; }
+    .meta{
+      margin-top: 10px;
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--muted2);
+      font-size: .85rem;
+    }
+    .submit-row{
+      display:flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .submit-row .btn{ flex: 1; }
+    .submit-row .btn.primary{ flex: 1.2; }
 
-    .contact-card {
-      max-width: 650px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 30px;
+    .channels{
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .channels .row{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .channels .row:last-child{ border-bottom:none; }
+    .ic{
+      width: 36px; height: 36px;
       border-radius: 12px;
-      text-align: left;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(212,175,55,.12);
+      border: 1px solid rgba(212,175,55,.25);
+      color: var(--gold);
+      font-weight:900;
+    }
+    .channels .row .rtitle{
+      margin: 0;
+      font-weight: 800;
+      letter-spacing:.3px;
+      color: var(--text);
+      font-size: .95rem;
+    }
+    .channels .row .rtext{
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
     }
 
-    .cta-button {
-      background-color: var(--dorado);
-      color: black;
-      padding: 14px;
-      border-radius: 50px;
-      border: none;
-      width: 100%;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 15px;
+    .toast{
+      margin-top: 12px;
+      display:none;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(212,175,55,.25);
+      background: rgba(212,175,55,.10);
+      color: #f1f1f4;
+      font-size: .92rem;
     }
 
-    input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      border: none;
-      margin-top: 5px;
-      margin-bottom: 10px;
+    footer{
+      border-top: 1px solid rgba(255,255,255,.06);
+      padding: 22px 0 40px;
+      color: var(--muted2);
+      font-size: .9rem;
     }
-
-    .small {
-      font-size: 0.9rem;
-      color: #8a8a8a;
-      line-height: 1.5;
+    .foot{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      align-items:center;
     }
+    .foot .links{ display:flex; gap:14px; flex-wrap:wrap; }
 
-    footer {
-      text-align: center;
-      padding: 40px;
-      font-size: 0.85rem;
-      color: #666;
-    }
-
-    a {
-      color: var(--dorado);
-      text-decoration: none;
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .services{ grid-template-columns: 1fr; }
+      .contact-grid{ grid-template-columns: 1fr; }
+      .topbar .wrap{ gap: 12px; }
+      .nav{ display:none; }
     }
   </style>
 </head>
 
 <body>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" alt="UNTD Financial Group">
+        <div>
+          <div class="t1">UNTD Financial Group</div>
+          <div class="t2">Sitio informativo • USA</div>
+        </div>
+      </div>
 
-<header>
-  <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" class="logo">
-  <h1>Manuel Hernández</h1>
-  <p class="subtitle">Agente de Seguros | UNTD Financial Group</p>
-</header>
+      <div class="nav">
+        <a href="#servicios">Servicios</a>
+        <a href="#contact">Solicitar información</a>
+        <a href="/privacy.html">Privacidad</a>
+      </div>
 
-<section class="services">
-  <div class="card">
-    <h3>Seguros de Vida</h3>
-    <p>Protección financiera para tu familia.</p>
+      <a class="btn primary" href="#contact">Solicitar información</a>
+    </div>
   </div>
-  <div class="card">
-    <h3>Planes de Retiro</h3>
-    <p>Planificación para tu futuro.</p>
-  </div>
-  <div class="card">
-    <h3>Gastos Médicos</h3>
-    <p>Coberturas adaptadas a tus necesidades.</p>
-  </div>
-</section>
 
-<!-- 🔐 SECCIÓN CLAVE PARA A2P -->
-<section class="contact-section" id="contact">
-  <h2>Solicitar información</h2>
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="panel">
+          <h1>Manuel Hernández</h1>
+          <p class="subtitle">Agente de Seguros • UNTD Financial Group</p>
 
-  <div class="contact-card">
+          <div class="trust">
+            <b>Importante:</b> este sitio es informativo. No solicitamos contraseñas, datos bancarios ni números de tarjeta.
+            Si necesitás asistencia, usá únicamente los canales oficiales mostrados aquí.
+          </div>
 
-    <form>
-      <label>Teléfono</label>
-      <input type="tel" placeholder="+1 555 555 5555" required>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">Solicitar información</a>
+            <a class="btn" href="/privacy.html">Política de Privacidad</a>
+            <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
 
-      <p class="small">
-        Al enviar este formulario, aceptás recibir mensajes SMS informativos de UNTD Financial Group
-        relacionados con tu consulta. Pueden aplicar tarifas de mensajes y datos.
-        La frecuencia puede variar. Respondé STOP para cancelar.
+        <div class="quick">
+          <div class="qcard">
+            <p class="qtitle">Atención</p>
+            <p class="qline">Coordinación de contacto y seguimiento de consultas.</p>
+          </div>
+          <div class="qcard">
+            <p class="qtitle">Transparencia</p>
+            <p class="qline">Mensajes <b>informativos</b>. Podés darte de baja en cualquier momento con <b>STOP</b>.</p>
+          </div>
+          <div class="qcard">
+            <p class="qtitle">Privacidad</p>
+            <p class="qline">Ver nuestra <b><a href="/privacy.html">Política de Privacidad</a></b>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicios">
+      <div class="section-title">Servicios</div>
+      <div class="services">
+        <div class="card">
+          <h3>Seguros de Vida</h3>
+          <p>Opciones de protección y respaldo económico para tu familia.</p>
+          <div class="pill">Información • Coordinación • Seguimiento</div>
+        </div>
+        <div class="card">
+          <h3>Planes de Retiro</h3>
+          <p>Planificación orientada a objetivos y necesidades personales.</p>
+          <div class="pill">Informativo • No promocional</div>
+        </div>
+        <div class="card">
+          <h3>Gastos Médicos</h3>
+          <p>Alternativas y coberturas según tu situación.</p>
+          <div class="pill">Consulta • Recordatorios • Citas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / A2P -->
+    <section class="contact" id="contact">
+      <h2>Solicitar información</h2>
+      <p class="hint">
+        Completá tu teléfono y te contactaremos para responder tu consulta y coordinar el siguiente paso.
       </p>
 
-      <button type="submit" class="cta-button">
-        Solicitar información
-      </button>
-    </form>
+      <div class="contact-grid">
+        <!-- FORM (CTA + consent visible) -->
+        <div class="form">
+          <form id="leadForm">
+            <label for="phone">Teléfono</label>
+            <input id="phone" name="phone" type="tel" placeholder="+1 555-555-5555" required>
 
-    <p class="small" style="margin-top:20px;">
-      También podés contactarnos por:
-      <br>
-      📞 +1 (754) 261-9423<br>
-      📧 <a href="mailto:info@untd.site">info@untd.site</a><br>
-      💬 <a href="https://wa.me/17542619423" target="_blank">WhatsApp</a>
-    </p>
+            <div class="consent">
+              Al enviar este formulario, aceptás recibir <b>mensajes SMS informativos</b> de UNTD Financial Group
+              relacionados con tu consulta (confirmaciones y seguimientos). Pueden aplicar tarifas de mensajes y datos.
+              La frecuencia puede variar. Respondé <b>STOP</b> para cancelar o <b>HELP</b> para obtener ayuda.
+              <div style="margin-top:10px;">
+                <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidad</a>
+              </div>
+            </div>
+
+            <div class="submit-row">
+              <button class="btn primary" type="submit">Solicitar información</button>
+              <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+
+            <div class="meta">
+              <span>Consentimiento visible antes del envío.</span>
+              <span>Opt-out: STOP • Help: HELP</span>
+            </div>
+
+            <div id="toast" class="toast">
+              ✅ Gracias. Tu solicitud fue registrada. Si preferís, también podés escribirnos por WhatsApp.
+            </div>
+          </form>
+        </div>
+
+        <!-- Channels -->
+        <div class="channels">
+          <div class="row">
+            <div class="ic">📞</div>
+            <div>
+              <p class="rtitle">Teléfono</p>
+              <p class="rtext">+1 (754) 261-9423</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="ic">✉️</div>
+            <div>
+              <p class="rtitle">Email</p>
+              <p class="rtext"><a href="mailto:info@untd.site">info@untd.site</a></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="ic">💬</div>
+            <div>
+              <p class="rtitle">WhatsApp</p>
+              <p class="rtext"><a href="https://wa.me/17542619423" target="_blank" rel="noopener">Abrir chat</a></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="ic">🔒</div>
+            <div>
+              <p class="rtitle">Aviso</p>
+              <p class="rtext">No solicitamos contraseñas ni datos bancarios por SMS.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="foot">
+        <div>© <span id="year"></span> UNTD Financial Group</div>
+        <div class="links">
+          <a href="/privacy.html">Política de Privacidad</a>
+          <a href="#contact">Solicitar información</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Importante: el formulario no necesita enviar nada para A2P.
+    // Esto evita errores al usuario y mantiene el CTA verificable.
+    const form = document.getElementById("leadForm");
+    const toast = document.getElementById("toast");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      toast.style.display = "block";
+      setTimeout(() => { toast.style.display = "none"; }, 4500);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
