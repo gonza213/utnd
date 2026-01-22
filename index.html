@@ -21,24 +21,20 @@
 
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       background-color: var(--oscuro);
       color: white;
       line-height: 1.6;
-      scroll-behavior: smooth;
     }
 
     header {
       text-align: center;
       padding: 60px 20px;
-      background: radial-gradient(circle, #1a1a1a 0%, #0f0f0f 100%);
     }
 
     .logo {
       max-width: 250px;
       margin-bottom: 20px;
-      filter: drop-shadow(0px 5px 15px rgba(212, 175, 55, 0.2));
     }
 
     h1, h2, h3 {
@@ -48,17 +44,7 @@
     }
 
     .subtitle {
-      font-size: 1.1rem;
       color: var(--gris-texto);
-      margin-bottom: 12px;
-    }
-
-    .trust {
-      max-width: 760px;
-      margin: 10px auto 0;
-      padding: 10px 14px;
-      color: #c9c9c9;
-      font-size: 0.95rem;
     }
 
     .services {
@@ -72,15 +58,15 @@
 
     .card {
       background: var(--card-bg);
-      padding: 35px;
+      padding: 30px;
       border-radius: 12px;
-      border-bottom: 4px solid var(--dorado);
       text-align: center;
+      border-bottom: 4px solid var(--dorado);
     }
 
     .contact-section {
-      background-color: #121212;
       padding: 70px 20px;
+      background-color: #121212;
       border-top: 1px solid #222;
       text-align: center;
     }
@@ -89,39 +75,46 @@
       max-width: 650px;
       margin: 0 auto;
       background: var(--card-bg);
-      padding: 28px;
+      padding: 30px;
       border-radius: 12px;
       text-align: left;
     }
 
     .cta-button {
-      display: inline-block;
       background-color: var(--dorado);
       color: black;
-      padding: 14px 22px;
-      text-decoration: none;
-      font-weight: bold;
+      padding: 14px;
       border-radius: 50px;
+      border: none;
+      width: 100%;
+      font-weight: bold;
+      cursor: pointer;
       margin-top: 15px;
-      text-transform: uppercase;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 5px;
+      margin-bottom: 10px;
     }
 
     .small {
       font-size: 0.9rem;
       color: #8a8a8a;
-      margin-top: 15px;
       line-height: 1.5;
     }
 
     footer {
-      padding: 40px 20px;
       text-align: center;
-      font-size: 0.9rem;
+      padding: 40px;
+      font-size: 0.85rem;
       color: #666;
-      background: #0a0a0a;
     }
 
-    footer a {
+    a {
       color: var(--dorado);
       text-decoration: none;
     }
@@ -131,15 +124,9 @@
 <body>
 
 <header>
-  <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg"
-       alt="UNTD Financial Group" class="logo">
-
+  <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" class="logo">
   <h1>Manuel Hernández</h1>
   <p class="subtitle">Agente de Seguros | UNTD Financial Group</p>
-
-  <p class="trust">
-    Sitio informativo. No solicitamos contraseñas, datos bancarios ni información sensible por este medio.
-  </p>
 </header>
 
 <section class="services">
@@ -149,45 +136,39 @@
   </div>
   <div class="card">
     <h3>Planes de Retiro</h3>
-    <p>Planificación para un futuro estable.</p>
+    <p>Planificación para tu futuro.</p>
   </div>
   <div class="card">
     <h3>Gastos Médicos</h3>
-    <p>Opciones de cobertura según tus necesidades.</p>
+    <p>Coberturas adaptadas a tus necesidades.</p>
   </div>
 </section>
 
-<section class="contact-section">
-  <h2>Contacto</h2>
+<!-- 🔐 SECCIÓN CLAVE PARA A2P -->
+<section class="contact-section" id="contact">
+  <h2>Solicitar información</h2>
 
   <div class="contact-card">
-    <p><b>WhatsApp:</b> <a href="https://wa.me/17542619423" target="_blank">Enviar mensaje</a></p>
-    <p><b>Teléfono:</b> +1 (754) 261-9423</p>
-    <p><b>Email:</b> <a href="mailto:info@untd.site">info@untd.site</a></p>
 
-    <a class="cta-button" href="https://wa.me/17542619423" target="_blank">Escribir por WhatsApp</a>
+    <form>
+      <label>Teléfono</label>
+      <input type="tel" placeholder="+1 555 555 5555" required>
 
-    <!-- 🔐 BLOQUE A2P CRÍTICO -->
-    <p class="small">
-      Al enviar tu información o contactarte por este sitio, aceptás recibir mensajes SMS informativos
-      de UNTD Financial Group relacionados con tu consulta, incluyendo confirmaciones y seguimientos.
-      Pueden aplicar tarifas de mensajes y datos. La frecuencia de mensajes puede variar.
-      Podés cancelar en cualquier momento respondiendo STOP.
+      <p class="small">
+        Al enviar este formulario, aceptás recibir mensajes SMS informativos de UNTD Financial Group
+        relacionados con tu consulta. Pueden aplicar tarifas de mensajes y datos.
+        La frecuencia puede variar. Respondé STOP para cancelar.
+      </p>
+
+      <button type="submit" class="cta-button">
+        Solicitar información
+      </button>
+    </form>
+
+    <p class="small" style="margin-top:20px;">
+      También podés contactarnos por:
+      <br>
+      📞 +1 (754) 261-9423<br>
+      📧 <a href="mailto:info@untd.site">info@untd.site</a><br>
+      💬 <a href="https://wa.me/17542619423" target="_blank">WhatsApp</a>
     </p>
-
-    <p class="small">
-      <a href="/privacy.html">Política de Privacidad</a>
-    </p>
-  </div>
-</section>
-
-<footer>
-  <p>© <span id="year"></span> UNTD Financial Group. Todos los derechos reservados.</p>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
