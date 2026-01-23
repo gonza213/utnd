@@ -16,22 +16,23 @@
       --bg:#0b0b0e;
       --bg2:#0f0f13;
       --card:#141419;
-      --card2:#101015;
       --text:#f5f5f7;
       --muted:#b7b7bd;
       --muted2:#8c8c95;
       --gold:#d4af37;
       --gold2:#f1c40f;
-      --line:#24242b;
       --shadow: 0 18px 50px rgba(0,0,0,.55);
       --radius:16px;
+      --line: rgba(255,255,255,.08);
+      --ok: rgba(76, 175, 80, .18);
+      --warn: rgba(255, 193, 7, .18);
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
         radial-gradient(900px 500px at 20% 10%, rgba(212,175,55,.18), transparent 55%),
         radial-gradient(900px 500px at 80% 0%, rgba(241,196,15,.10), transparent 55%),
@@ -42,14 +43,11 @@
 
     a{ color:var(--gold); text-decoration:none; }
     a:hover{ color:var(--gold2); }
-
     .wrap{ max-width:1100px; margin:0 auto; padding: 22px; }
 
     /* Top bar */
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
       background: rgba(11,11,14,.55);
       border-bottom: 1px solid rgba(255,255,255,.06);
@@ -57,11 +55,9 @@
     .topbar .wrap{
       display:flex; align-items:center; justify-content:space-between;
       padding: 14px 22px;
+      gap: 12px;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 220px;
-    }
+    .brand{ display:flex; align-items:center; gap:12px; min-width:220px; }
     .brand img{
       width:38px; height:38px; border-radius:10px;
       object-fit:cover;
@@ -71,19 +67,14 @@
     .brand .t1{ font-weight:800; letter-spacing:.6px; }
     .brand .t2{ font-size:.82rem; color:var(--muted2); margin-top:2px; }
 
-    .nav{
-      display:flex; gap:14px; align-items:center;
-    }
+    .nav{ display:flex; gap:14px; align-items:center; }
     .nav a{
       color: var(--muted);
       font-size: .95rem;
       padding: 10px 12px;
       border-radius: 12px;
     }
-    .nav a:hover{
-      color: var(--text);
-      background: rgba(255,255,255,.06);
-    }
+    .nav a:hover{ color: var(--text); background: rgba(255,255,255,.06); }
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -110,12 +101,9 @@
       background: linear-gradient(90deg, var(--gold), var(--gold2));
       box-shadow: 0 14px 40px rgba(212,175,55,.18);
     }
-    .btn.primary:hover{ transform: translateY(-1px); }
 
     /* Hero */
-    .hero{
-      padding: 44px 0 18px;
-    }
+    .hero{ padding: 44px 0 18px; }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -136,11 +124,7 @@
       text-transform: uppercase;
       color: var(--gold);
     }
-    .subtitle{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
+    .subtitle{ margin: 0 0 14px; color: var(--muted); font-size: 1.05rem; }
     .trust{
       margin: 14px 0 0;
       padding: 14px 14px;
@@ -150,15 +134,9 @@
       color: #d3d3d8;
       font-size: .95rem;
     }
-    .hero-actions{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top: 18px;
-    }
+    .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px; }
 
-    .quick{
-      display:grid; gap:12px;
-      height:100%;
-    }
+    .quick{ display:grid; gap:12px; height:100%; }
     .quick .qcard{
       background: linear-gradient(180deg, rgba(20,20,25,.85), rgba(16,16,21,.65));
       border: 1px solid rgba(255,255,255,.08);
@@ -195,21 +173,10 @@
       border-color: rgba(212,175,55,.25);
       background: linear-gradient(180deg, rgba(212,175,55,.08), rgba(255,255,255,.02));
     }
-    .card h3{
-      margin: 0 0 6px;
-      color: var(--text);
-      font-size: 1.05rem;
-      letter-spacing: .4px;
-    }
-    .card p{
-      margin: 0;
-      color: var(--muted);
-      font-size: .95rem;
-    }
+    .card h3{ margin: 0 0 6px; color: var(--text); font-size: 1.05rem; letter-spacing: .4px; }
+    .card p{ margin: 0; color: var(--muted); font-size: .95rem; }
     .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      display:inline-flex; align-items:center; gap:8px;
       padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.10);
@@ -241,11 +208,7 @@
       letter-spacing:.8px;
       font-size: 1.2rem;
     }
-    .contact .hint{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: .95rem;
-    }
+    .contact .hint{ margin: 0 0 14px; color: var(--muted); font-size: .95rem; }
 
     .form{
       background: rgba(0,0,0,.20);
@@ -253,12 +216,7 @@
       border-radius: var(--radius);
       padding: 16px;
     }
-    label{
-      display:block;
-      font-size: .9rem;
-      color: #d7d7dc;
-      margin-bottom: 6px;
-    }
+    label{ display:block; font-size: .9rem; color: #d7d7dc; margin-bottom: 6px; }
     input[type="tel"]{
       width:100%;
       padding: 12px 12px;
@@ -273,9 +231,10 @@
       border-color: rgba(212,175,55,.55);
       box-shadow: 0 0 0 4px rgba(212,175,55,.12);
     }
-    .consent{
+
+    .consentBox{
       margin-top: 12px;
-      padding: 12px 12px;
+      padding: 14px 14px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.08);
       background: rgba(0,0,0,.22);
@@ -283,7 +242,30 @@
       font-size: .9rem;
       line-height: 1.55;
     }
-    .consent a{ font-weight: 700; }
+    .consentLine{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .consentLine input{
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .consentLine strong{ color: var(--text); }
+    .consentLinks{
+      margin-top: 10px;
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-weight: 700;
+    }
+
     .meta{
       margin-top: 10px;
       display:flex;
@@ -294,6 +276,7 @@
       color: var(--muted2);
       font-size: .85rem;
     }
+
     .submit-row{
       display:flex;
       gap: 10px;
@@ -302,6 +285,25 @@
     }
     .submit-row .btn{ flex: 1; }
     .submit-row .btn.primary{ flex: 1.2; }
+
+    .notice{
+      margin-top: 12px;
+      display:none;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      font-size: .92rem;
+    }
+    .notice.ok{
+      border-color: rgba(76,175,80,.35);
+      background: var(--ok);
+      color: #eaf7ec;
+    }
+    .notice.warn{
+      border-color: rgba(255,193,7,.35);
+      background: var(--warn);
+      color: #fff7de;
+    }
 
     .channels{
       background: rgba(0,0,0,.20);
@@ -333,22 +335,7 @@
       color: var(--text);
       font-size: .95rem;
     }
-    .channels .row .rtext{
-      margin: 2px 0 0;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .toast{
-      margin-top: 12px;
-      display:none;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(212,175,55,.25);
-      background: rgba(212,175,55,.10);
-      color: #f1f1f4;
-      font-size: .92rem;
-    }
+    .channels .row .rtext{ margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
 
     footer{
       border-top: 1px solid rgba(255,255,255,.06);
@@ -362,19 +349,16 @@
     }
     .foot .links{ display:flex; gap:14px; flex-wrap:wrap; }
 
-    /* Responsive */
     @media (max-width: 900px){
       .hero-grid{ grid-template-columns: 1fr; }
       .services{ grid-template-columns: 1fr; }
       .contact-grid{ grid-template-columns: 1fr; }
-      .topbar .wrap{ gap: 12px; }
       .nav{ display:none; }
     }
   </style>
 </head>
 
 <body>
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="wrap">
       <div class="brand">
@@ -389,6 +373,7 @@
         <a href="#servicios">Servicios</a>
         <a href="#contact">Solicitar información</a>
         <a href="/privacy.html">Privacidad</a>
+        <a href="/terms.html">Términos</a>
       </div>
 
       <a class="btn primary" href="#contact">Solicitar información</a>
@@ -396,7 +381,6 @@
   </div>
 
   <main class="wrap">
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-grid">
         <div class="panel">
@@ -411,6 +395,7 @@
           <div class="hero-actions">
             <a class="btn primary" href="#contact">Solicitar información</a>
             <a class="btn" href="/privacy.html">Política de Privacidad</a>
+            <a class="btn" href="/terms.html">Términos</a>
             <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
@@ -422,17 +407,16 @@
           </div>
           <div class="qcard">
             <p class="qtitle">Transparencia</p>
-            <p class="qline">Mensajes <b>informativos</b>. Podés darte de baja en cualquier momento con <b>STOP</b>.</p>
+            <p class="qline">SMS <b>informativos</b> solo con consentimiento. Baja con <b>STOP</b>.</p>
           </div>
           <div class="qcard">
             <p class="qtitle">Privacidad</p>
-            <p class="qline">Ver nuestra <b><a href="/privacy.html">Política de Privacidad</a></b>.</p>
+            <p class="qline">Ver <b><a href="/privacy.html">Política de Privacidad</a></b> y <b><a href="/terms.html">Términos</a></b>.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
     <section id="servicios">
       <div class="section-title">Servicios</div>
       <div class="services">
@@ -454,7 +438,6 @@
       </div>
     </section>
 
-    <!-- CONTACT / A2P -->
     <section class="contact" id="contact">
       <h2>Solicitar información</h2>
       <p class="hint">
@@ -462,18 +445,31 @@
       </p>
 
       <div class="contact-grid">
-        <!-- FORM (CTA + consent visible) -->
         <div class="form">
           <form id="leadForm">
             <label for="phone">Teléfono</label>
             <input id="phone" name="phone" type="tel" placeholder="+1 555-555-5555" required>
 
-            <div class="consent">
-              Al enviar este formulario, aceptás recibir <b>mensajes SMS informativos</b> de UNTD Financial Group
-              relacionados con tu consulta (confirmaciones y seguimientos). Pueden aplicar tarifas de mensajes y datos.
-              La frecuencia puede variar. Respondé <b>STOP</b> para cancelar o <b>HELP</b> para obtener ayuda.
-              <div style="margin-top:10px;">
+            <div class="consentBox">
+              <div>
+                <strong>SMS Disclosure (Informativo):</strong><br>
+                UNTD Financial Group puede enviarte <strong>mensajes SMS informativos</strong> relacionados con tu consulta
+                (confirmaciones, respuestas y seguimientos). <em>Message frequency may vary.</em>
+                <em>Message &amp; data rates may apply.</em>
+                Respondé <strong>STOP</strong> para cancelar o <strong>HELP</strong> para obtener ayuda.
+              </div>
+
+              <div class="consentLine">
+                <input id="smsConsent" name="smsConsent" type="checkbox" />
+                <label for="smsConsent" style="margin:0; cursor:pointer;">
+                  Acepto recibir <strong>mensajes SMS informativos</strong> de UNTD Financial Group al número proporcionado.
+                  (Opcional)
+                </label>
+              </div>
+
+              <div class="consentLinks">
                 <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidad</a>
+                <a href="/terms.html" target="_blank" rel="noopener">Términos del Servicio</a>
               </div>
             </div>
 
@@ -483,17 +479,19 @@
             </div>
 
             <div class="meta">
-              <span>Consentimiento visible antes del envío.</span>
+              <span>Consentimiento mostrado antes del CTA.</span>
               <span>Opt-out: STOP • Help: HELP</span>
             </div>
 
-            <div id="toast" class="toast">
-              ✅ Gracias. Tu solicitud fue registrada. Si preferís, también podés escribirnos por WhatsApp.
+            <div id="noticeOk" class="notice ok">
+              ✅ Gracias. Recibimos tu solicitud. Si marcaste el consentimiento, podremos responderte también por SMS.
+            </div>
+            <div id="noticeWarn" class="notice warn">
+              ⚠️ Gracias. Recibimos tu solicitud. Como NO marcaste el consentimiento SMS, no enviaremos SMS (solo te contactaremos por otros medios).
             </div>
           </form>
         </div>
 
-        <!-- Channels -->
         <div class="channels">
           <div class="row">
             <div class="ic">📞</div>
@@ -523,19 +521,19 @@
             <div class="ic">🔒</div>
             <div>
               <p class="rtitle">Aviso</p>
-              <p class="rtext">No solicitamos contraseñas ni datos bancarios por SMS.</p>
+              <p class="rtext">Nunca solicitamos contraseñas ni datos bancarios por SMS.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div class="foot">
         <div>© <span id="year"></span> UNTD Financial Group</div>
         <div class="links">
           <a href="/privacy.html">Política de Privacidad</a>
+          <a href="/terms.html">Términos</a>
           <a href="#contact">Solicitar información</a>
         </div>
       </div>
@@ -545,15 +543,30 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Importante: el formulario no necesita enviar nada para A2P.
-    // Esto evita errores al usuario y mantiene el CTA verificable.
     const form = document.getElementById("leadForm");
-    const toast = document.getElementById("toast");
+    const noticeOk = document.getElementById("noticeOk");
+    const noticeWarn = document.getElementById("noticeWarn");
+    const smsConsent = document.getElementById("smsConsent");
+
+    function hideNotices(){
+      noticeOk.style.display = "none";
+      noticeWarn.style.display = "none";
+    }
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      toast.style.display = "block";
-      setTimeout(() => { toast.style.display = "none"; }, 4500);
+      hideNotices();
+
+      // Importante para revisión:
+      // - No bloqueamos el envío si NO marca el checkbox (carrier-safe example).
+      // - En operación real: solo enviar SMS si smsConsent.checked === true.
+      if (smsConsent.checked) {
+        noticeOk.style.display = "block";
+      } else {
+        noticeWarn.style.display = "block";
+      }
+
+      setTimeout(() => hideNotices(), 6500);
       form.reset();
     });
   </script>
