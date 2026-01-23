@@ -7,7 +7,7 @@
   <title>Manuel Hernández | UNTD Financial Group</title>
   <meta name="description" content="Asesoría patrimonial y seguros. Información y coordinación de contacto. Sitio oficial." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://untd.site/" />
+  <link rel="canonical" href="https://www.untd.site/" />
 
   <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
 
@@ -236,8 +236,8 @@
       margin-top: 12px;
       padding: 14px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(212,175,55,.25);
+      background: rgba(212,175,55,.08);
       color: #cfcfd6;
       font-size: .9rem;
       line-height: 1.55;
@@ -248,7 +248,7 @@
       align-items:flex-start;
       margin-top: 10px;
       padding-top: 10px;
-      border-top: 1px solid rgba(255,255,255,.06);
+      border-top: 1px solid rgba(255,255,255,.10);
     }
     .consentLine input{
       margin-top: 4px;
@@ -264,6 +264,13 @@
       gap: 12px;
       flex-wrap: wrap;
       font-weight: 700;
+    }
+    .preCtaNote{
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: #e8e8ec;
+      font-size: .88rem;
     }
 
     .meta{
@@ -390,6 +397,8 @@
           <div class="trust">
             <b>Importante:</b> este sitio es informativo. No solicitamos contraseñas, datos bancarios ni números de tarjeta.
             Si necesitás asistencia, usá únicamente los canales oficiales mostrados aquí.
+            <br><br>
+            <b>Al enviar el formulario de contacto, aceptás recibir mensajes SMS informativos de UNTD Financial Group.</b>
           </div>
 
           <div class="hero-actions">
@@ -407,7 +416,7 @@
           </div>
           <div class="qcard">
             <p class="qtitle">Transparencia</p>
-            <p class="qline">SMS <b>informativos</b> solo con consentimiento. Baja con <b>STOP</b>.</p>
+            <p class="qline">SMS <b>informativos</b> solo con consentimiento explícito. Baja con <b>STOP</b>.</p>
           </div>
           <div class="qcard">
             <p class="qtitle">Privacidad</p>
@@ -460,11 +469,15 @@
               </div>
 
               <div class="consentLine">
-                <input id="smsConsent" name="smsConsent" type="checkbox" />
+                <input id="smsConsent" name="smsConsent" type="checkbox" required />
                 <label for="smsConsent" style="margin:0; cursor:pointer;">
-                  Acepto recibir <strong>mensajes SMS informativos</strong> de UNTD Financial Group al número proporcionado.
-                  (Opcional)
+                  <strong>Acepto recibir mensajes SMS informativos de UNTD Financial Group al número proporcionado.</strong>
                 </label>
+              </div>
+
+              <div class="preCtaNote">
+                <strong>📋 Consentimiento mostrado antes del CTA</strong><br>
+                Al marcar esta casilla y enviar el formulario, otorgás tu consentimiento explícito para recibir mensajes SMS informativos de UNTD Financial Group.
               </div>
 
               <div class="consentLinks">
@@ -479,15 +492,15 @@
             </div>
 
             <div class="meta">
-              <span>Consentimiento mostrado antes del CTA.</span>
               <span>Opt-out: STOP • Help: HELP</span>
+              <span>Msg frequency varies • Msg &amp; data rates may apply</span>
             </div>
 
             <div id="noticeOk" class="notice ok">
-              ✅ Gracias. Recibimos tu solicitud. Si marcaste el consentimiento, podremos responderte también por SMS.
+              ✅ Gracias. Recibimos tu solicitud y tu consentimiento para mensajes SMS informativos. Te contactaremos pronto.
             </div>
             <div id="noticeWarn" class="notice warn">
-              ⚠️ Gracias. Recibimos tu solicitud. Como NO marcaste el consentimiento SMS, no enviaremos SMS (solo te contactaremos por otros medios).
+              ⚠️ Por favor marcá el checkbox de consentimiento SMS para continuar.
             </div>
           </form>
         </div>
@@ -520,8 +533,8 @@
           <div class="row">
             <div class="ic">🔒</div>
             <div>
-              <p class="rtitle">Aviso</p>
-              <p class="rtext">Nunca solicitamos contraseñas ni datos bancarios por SMS.</p>
+              <p class="rtitle">Aviso de Seguridad</p>
+              <p class="rtext">Nunca solicitamos contraseñas ni datos bancarios por SMS. Al enviar este formulario, aceptás recibir mensajes SMS informativos.</p>
             </div>
           </div>
         </div>
@@ -557,17 +570,22 @@
       e.preventDefault();
       hideNotices();
 
-      // Importante para revisión:
-      // - No bloqueamos el envío si NO marca el checkbox (carrier-safe example).
-      // - En operación real: solo enviar SMS si smsConsent.checked === true.
-      if (smsConsent.checked) {
-        noticeOk.style.display = "block";
-      } else {
+      // Validación: REQUERIMOS el checkbox marcado (compliance)
+      if (!smsConsent.checked) {
         noticeWarn.style.display = "block";
+        return;
       }
 
-      setTimeout(() => hideNotices(), 6500);
-      form.reset();
+      // Si llegamos aquí, el usuario DIO consentimiento explícito
+      noticeOk.style.display = "block";
+
+      setTimeout(() => {
+        hideNotices();
+        form.reset();
+      }, 6500);
+
+      // Aquí enviarías los datos a tu backend/webhook
+      // fetch('/api/submit', { method: 'POST', body: JSON.stringify({ phone: form.phone.value, consent: true }) });
     });
   </script>
 </body>
