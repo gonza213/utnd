@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Términos del Servicio | UNTD Financial Group</title>
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://untd.site/terms.html" />
+  <style>
+    :root{ --gold:#d4af37; --bg:#0b0b0e; --card:#141419; --muted:#b7b7bd; }
+    body{ margin:0; font-family: Arial, Helvetica, sans-serif; background: var(--bg); color:#fff; line-height:1.7; }
+    header{ padding:40px 20px; text-align:center; border-bottom:1px solid rgba(255,255,255,.08); }
+    h1{ margin:0; color:var(--gold); text-transform:uppercase; letter-spacing:1px; }
+    .wrap{ max-width:900px; margin:0 auto; padding:30px 20px 60px; }
+    .card{ background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:22px; }
+    p,li{ color:var(--muted); }
+    a{ color:var(--gold); text-decoration:none; font-weight:700; }
+    footer{ padding:30px 20px; text-align:center; color:#888; border-top:1px solid rgba(255,255,255,.08); }
+    .back{ display:inline-block; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Términos del Servicio</h1>
+    <a class="back" href="/">← Volver al inicio</a>
+  </header>
+
+  <div class="wrap">
+    <div class="card">
+      <p>Última actualización: <span id="y"></span></p>
+
+      <h3>1. Finalidad del sitio</h3>
+      <p>Este sitio es informativo y permite solicitar contacto para responder consultas sobre servicios de seguros y planificación.</p>
+
+      <h3>2. Mensajería (SMS)</h3>
+      <p>
+        Solo se enviarán mensajes SMS informativos si el usuario otorga su consentimiento explícito mediante el checkbox del formulario.
+        La frecuencia puede variar. Pueden aplicar tarifas de mensajes y datos.
+        Para cancelar, responder <b>STOP</b>. Para ayuda, responder <b>HELP</b>.
+      </p>
+
+      <h3>3. Uso aceptable</h3>
+      <p>El usuario se compromete a brindar información veraz y a no utilizar el sitio para fines ilegales.</p>
+
+      <h3>4. Contacto</h3>
+      <p>Si necesitás asistencia, usá los canales oficiales publicados en el sitio.</p>
+
+      <p style="margin-top:18px;">
+        Ver también: <a href="/privacy.html">Política de Privacidad</a>
+      </p>
+    </div>
+  </div>
+
+  <footer>© <span class="yy"></span> UNTD Financial Group</footer>
+
+  <script>
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+    document.querySelectorAll(".yy").forEach(el => el.textContent = y);
+  </script>
+</body>
+</html>
