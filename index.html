@@ -8,7 +8,6 @@
   <meta name="description" content="Asesoría patrimonial y seguros. Información y coordinación de contacto. Sitio oficial." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://www.untd.site/" />
-
   <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
 
   <style>
@@ -45,7 +44,6 @@
     a:hover{ color:var(--gold2); }
     .wrap{ max-width:1100px; margin:0 auto; padding: 22px; }
 
-    /* Top bar */
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
@@ -102,7 +100,6 @@
       box-shadow: 0 14px 40px rgba(212,175,55,.18);
     }
 
-    /* Hero */
     .hero{ padding: 44px 0 18px; }
     .hero-grid{
       display:grid;
@@ -147,7 +144,6 @@
     .qline{ margin: 0; color: var(--muted); font-size:.95rem; }
     .qline b{ color: var(--text); font-weight:700; }
 
-    /* Services */
     .section-title{
       margin: 34px 0 14px;
       font-size: 1.2rem;
@@ -186,7 +182,6 @@
       background: rgba(0,0,0,.18);
     }
 
-    /* Contact / A2P */
     .contact{
       margin: 26px 0 40px;
       padding: 22px;
@@ -232,13 +227,14 @@
       box-shadow: 0 0 0 4px rgba(212,175,55,.12);
     }
 
+    /* ✅ Consent: simple, readable, one flow */
     .consentBox{
       margin-top: 12px;
       padding: 14px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(212,175,55,.25);
-      background: rgba(212,175,55,.08);
-      color: #cfcfd6;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.22);
+      color: #d7d7dc;
       font-size: .9rem;
       line-height: 1.55;
     }
@@ -246,9 +242,6 @@
       display:flex;
       gap: 10px;
       align-items:flex-start;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255,255,255,.10);
     }
     .consentLine input{
       margin-top: 4px;
@@ -256,8 +249,10 @@
       height: 18px;
       accent-color: var(--gold);
       cursor: pointer;
+      flex: 0 0 auto;
     }
-    .consentLine strong{ color: var(--text); }
+    .consentText{ margin: 0; }
+    .consentText b{ color: var(--text); }
     .consentLinks{
       margin-top: 10px;
       display:flex;
@@ -265,23 +260,14 @@
       flex-wrap: wrap;
       font-weight: 700;
     }
-    .preCtaNote{
-      margin-top: 8px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: #e8e8ec;
-      font-size: .88rem;
-    }
-
-    .meta{
+    .mini{
       margin-top: 10px;
-      display:flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
       color: var(--muted2);
       font-size: .85rem;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     .submit-row{
@@ -303,12 +289,12 @@
     }
     .notice.ok{
       border-color: rgba(76,175,80,.35);
-      background: var(--ok);
+      background: rgba(76,175,80,.18);
       color: #eaf7ec;
     }
     .notice.warn{
       border-color: rgba(255,193,7,.35);
-      background: var(--warn);
+      background: rgba(255,193,7,.18);
       color: #fff7de;
     }
 
@@ -397,8 +383,6 @@
           <div class="trust">
             <b>Importante:</b> este sitio es informativo. No solicitamos contraseñas, datos bancarios ni números de tarjeta.
             Si necesitás asistencia, usá únicamente los canales oficiales mostrados aquí.
-            <br><br>
-            <b>Al enviar el formulario de contacto, aceptás recibir mensajes SMS informativos de UNTD Financial Group.</b>
           </div>
 
           <div class="hero-actions">
@@ -416,7 +400,7 @@
           </div>
           <div class="qcard">
             <p class="qtitle">Transparencia</p>
-            <p class="qline">SMS <b>informativos</b> solo con consentimiento explícito. Baja con <b>STOP</b>.</p>
+            <p class="qline">Mensajes SMS <b>informativos</b>. Baja con <b>STOP</b>.</p>
           </div>
           <div class="qcard">
             <p class="qtitle">Privacidad</p>
@@ -459,30 +443,25 @@
             <label for="phone">Teléfono</label>
             <input id="phone" name="phone" type="tel" placeholder="+1 555-555-5555" required>
 
+            <!-- ✅ The only consent block -->
             <div class="consentBox">
-              <div>
-                <strong>SMS Disclosure (Informativo):</strong><br>
-                UNTD Financial Group puede enviarte <strong>mensajes SMS informativos</strong> relacionados con tu consulta
-                (confirmaciones, respuestas y seguimientos). <em>Message frequency may vary.</em>
-                <em>Message &amp; data rates may apply.</em>
-                Respondé <strong>STOP</strong> para cancelar o <strong>HELP</strong> para obtener ayuda.
-              </div>
-
               <div class="consentLine">
                 <input id="smsConsent" name="smsConsent" type="checkbox" required />
-                <label for="smsConsent" style="margin:0; cursor:pointer;">
-                  <strong>Acepto recibir mensajes SMS informativos de UNTD Financial Group al número proporcionado.</strong>
-                </label>
-              </div>
-
-              <div class="preCtaNote">
-                <strong>📋 Consentimiento mostrado antes del CTA</strong><br>
-                Al marcar esta casilla y enviar el formulario, otorgás tu consentimiento explícito para recibir mensajes SMS informativos de UNTD Financial Group.
+                <p class="consentText">
+                  Acepto recibir <b>mensajes SMS informativos</b> de UNTD Financial Group relacionados con mi consulta
+                  (confirmaciones y seguimientos). Pueden aplicar tarifas de mensajes y datos.
+                  La frecuencia puede variar. Respondé <b>STOP</b> para cancelar o <b>HELP</b> para obtener ayuda.
+                </p>
               </div>
 
               <div class="consentLinks">
                 <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidad</a>
                 <a href="/terms.html" target="_blank" rel="noopener">Términos del Servicio</a>
+              </div>
+
+              <div class="mini">
+                <span>Opt-out: STOP</span>
+                <span>Ayuda: HELP</span>
               </div>
             </div>
 
@@ -491,13 +470,8 @@
               <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
             </div>
 
-            <div class="meta">
-              <span>Opt-out: STOP • Help: HELP</span>
-              <span>Msg frequency varies • Msg &amp; data rates may apply</span>
-            </div>
-
             <div id="noticeOk" class="notice ok">
-              ✅ Gracias. Recibimos tu solicitud y tu consentimiento para mensajes SMS informativos. Te contactaremos pronto.
+              ✅ Gracias. Recibimos tu solicitud. Te contactaremos pronto.
             </div>
             <div id="noticeWarn" class="notice warn">
               ⚠️ Por favor marcá el checkbox de consentimiento SMS para continuar.
@@ -534,7 +508,7 @@
             <div class="ic">🔒</div>
             <div>
               <p class="rtitle">Aviso de Seguridad</p>
-              <p class="rtext">Nunca solicitamos contraseñas ni datos bancarios por SMS. Al enviar este formulario, aceptás recibir mensajes SMS informativos.</p>
+              <p class="rtext">Nunca solicitamos contraseñas ni datos bancarios por SMS.</p>
             </div>
           </div>
         </div>
@@ -570,22 +544,16 @@
       e.preventDefault();
       hideNotices();
 
-      // Validación: REQUERIMOS el checkbox marcado (compliance)
       if (!smsConsent.checked) {
         noticeWarn.style.display = "block";
         return;
       }
 
-      // Si llegamos aquí, el usuario DIO consentimiento explícito
       noticeOk.style.display = "block";
-
       setTimeout(() => {
         hideNotices();
         form.reset();
-      }, 6500);
-
-      // Aquí enviarías los datos a tu backend/webhook
-      // fetch('/api/submit', { method: 'POST', body: JSON.stringify({ phone: form.phone.value, consent: true }) });
+      }, 5500);
     });
   </script>
 </body>
