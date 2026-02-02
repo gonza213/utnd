@@ -4,17 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Manuel Hernández | UNTD Financial Group</title>
-  <meta name="description" content="Asesoría patrimonial y seguros. Información y coordinación de contacto. Sitio oficial." />
+  <title>Solicitar información | UNTD Financial Group</title>
+  <meta name="description" content="Formulario de contacto oficial. Solicitud de información y consentimiento opcional para SMS informativos." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://www.untd.site/" />
+  <link rel="canonical" href="https://www.untd.site/contact.html" />
   <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
 
   <style>
     :root{
       --bg:#0b0b0e;
       --bg2:#0f0f13;
-      --card:#141419;
       --text:#f5f5f7;
       --muted:#b7b7bd;
       --muted2:#8c8c95;
@@ -22,13 +21,13 @@
       --gold2:#f1c40f;
       --shadow: 0 18px 50px rgba(0,0,0,.55);
       --radius:16px;
-      --line: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.10);
       --ok: rgba(76, 175, 80, .18);
       --warn: rgba(255, 193, 7, .18);
+      --bad: rgba(244, 67, 54, .18);
     }
 
     *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -39,10 +38,10 @@
       color:var(--text);
       line-height:1.6;
     }
-
     a{ color:var(--gold); text-decoration:none; }
     a:hover{ color:var(--gold2); }
-    .wrap{ max-width:1100px; margin:0 auto; padding: 22px; }
+
+    .wrap{ max-width:900px; margin:0 auto; padding: 22px; }
 
     .topbar{
       position:sticky; top:0; z-index:50;
@@ -55,7 +54,7 @@
       padding: 14px 22px;
       gap: 12px;
     }
-    .brand{ display:flex; align-items:center; gap:12px; min-width:220px; }
+    .brand{ display:flex; align-items:center; gap:12px; }
     .brand img{
       width:38px; height:38px; border-radius:10px;
       object-fit:cover;
@@ -64,15 +63,6 @@
     }
     .brand .t1{ font-weight:800; letter-spacing:.6px; }
     .brand .t2{ font-size:.82rem; color:var(--muted2); margin-top:2px; }
-
-    .nav{ display:flex; gap:14px; align-items:center; }
-    .nav a{
-      color: var(--muted);
-      font-size: .95rem;
-      padding: 10px 12px;
-      border-radius: 12px;
-    }
-    .nav a:hover{ color: var(--text); background: rgba(255,255,255,.06); }
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
@@ -99,120 +89,31 @@
       background: linear-gradient(90deg, var(--gold), var(--gold2));
       box-shadow: 0 14px 40px rgba(212,175,55,.18);
     }
-
-    .hero{ padding: 44px 0 18px; }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 22px;
-      align-items: stretch;
+    .btn:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+      transform:none;
     }
+
     .panel{
+      margin-top: 18px;
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border: 1px solid rgba(255,255,255,.08);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 26px;
-    }
-    .hero h1{
-      margin: 6px 0 10px;
-      font-size: clamp(1.8rem, 2.6vw, 2.4rem);
-      letter-spacing:.8px;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .subtitle{ margin: 0 0 14px; color: var(--muted); font-size: 1.05rem; }
-    .trust{
-      margin: 14px 0 0;
-      padding: 14px 14px;
-      border-radius: 14px;
-      background: rgba(0,0,0,.25);
-      border: 1px solid rgba(255,255,255,.06);
-      color: #d3d3d8;
-      font-size: .95rem;
-    }
-    .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px; }
-
-    .quick{ display:grid; gap:12px; height:100%; }
-    .quick .qcard{
-      background: linear-gradient(180deg, rgba(20,20,25,.85), rgba(16,16,21,.65));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 18px;
-    }
-    .qtitle{ font-weight:800; letter-spacing:.4px; margin:0 0 8px; color: var(--gold); text-transform: uppercase; font-size:.95rem;}
-    .qline{ margin: 0; color: var(--muted); font-size:.95rem; }
-    .qline b{ color: var(--text); font-weight:700; }
-
-    .section-title{
-      margin: 34px 0 14px;
-      font-size: 1.2rem;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .services{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      transition: transform .18s ease, border-color .2s ease, background .2s ease;
-    }
-    .card:hover{
-      transform: translateY(-3px);
-      border-color: rgba(212,175,55,.25);
-      background: linear-gradient(180deg, rgba(212,175,55,.08), rgba(255,255,255,.02));
-    }
-    .card h3{ margin: 0 0 6px; color: var(--text); font-size: 1.05rem; letter-spacing: .4px; }
-    .card p{ margin: 0; color: var(--muted); font-size: .95rem; }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      font-size: .85rem;
-      margin-top: 12px;
-      background: rgba(0,0,0,.18);
-    }
-
-    .contact{
-      margin: 26px 0 40px;
       padding: 22px;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(20,20,25,.85), rgba(14,14,18,.65));
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow);
     }
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      align-items: start;
-    }
-    .contact h2{
+    h1{
       margin: 0 0 6px;
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing:.8px;
-      font-size: 1.2rem;
+      font-size: 1.35rem;
     }
-    .contact .hint{ margin: 0 0 14px; color: var(--muted); font-size: .95rem; }
+    .hint{ margin: 0 0 14px; color: var(--muted); }
 
-    .form{
-      background: rgba(0,0,0,.20);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    label{ display:block; font-size: .9rem; color: #d7d7dc; margin-bottom: 6px; }
-    input[type="tel"]{
+    label{ display:block; font-size: .9rem; color: #d7d7dc; margin: 10px 0 6px; }
+    input[type="text"], input[type="email"], input[type="tel"]{
       width:100%;
       padding: 12px 12px;
       border-radius: 12px;
@@ -222,50 +123,97 @@
       outline:none;
       transition: border-color .2s ease, box-shadow .2s ease;
     }
-    input[type="tel"]:focus{
+    input:focus{
       border-color: rgba(212,175,55,.55);
       box-shadow: 0 0 0 4px rgba(212,175,55,.12);
     }
 
-    /* ✅ Consent: simple, readable, one flow */
     .consentBox{
-      margin-top: 12px;
-      padding: 14px 14px;
+      margin-top: 16px;
+      padding: 18px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.30);
       color: #d7d7dc;
-      font-size: .9rem;
-      line-height: 1.55;
+      font-size: .93rem;
+      line-height: 1.65;
+    }
+    .consentBox .title{
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin: 0 0 12px;
+      letter-spacing: .4px;
+    }
+    .disclosure{
+      margin-bottom: 14px;
+      padding: 12px;
+      background: rgba(255,193,7,.08);
+      border-radius: 10px;
+      border-left: 3px solid var(--gold);
+    }
+    .disclosure-title{
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .disclosure ul{
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+    .disclosure li{
+      margin: 4px 0;
+      color: var(--text);
     }
     .consentLine{
       display:flex;
-      gap: 10px;
+      gap: 12px;
       align-items:flex-start;
+      margin-top: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,.04);
+      border-radius: 10px;
     }
     .consentLine input{
       margin-top: 4px;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       accent-color: var(--gold);
       cursor: pointer;
       flex: 0 0 auto;
     }
-    .consentText{ margin: 0; }
-    .consentText b{ color: var(--text); }
+    .consentText{ 
+      margin: 0;
+      line-height: 1.6;
+    }
+    .consentText strong{ color: var(--text); font-weight: 700; }
+    .optional{
+      display: inline-block;
+      margin-left: 6px;
+      padding: 2px 8px;
+      background: rgba(255,193,7,.15);
+      border-radius: 4px;
+      font-size: .85rem;
+      font-style: italic;
+      color: var(--gold2);
+    }
+
     .consentLinks{
-      margin-top: 10px;
+      margin-top: 12px;
       display:flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
       font-weight: 700;
+      font-size: .9rem;
     }
     .mini{
-      margin-top: 10px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.08);
       color: var(--muted2);
-      font-size: .85rem;
+      font-size: .88rem;
       display:flex;
-      gap: 10px;
+      gap: 14px;
       flex-wrap: wrap;
       justify-content: space-between;
     }
@@ -273,11 +221,11 @@
     .submit-row{
       display:flex;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 18px;
       flex-wrap: wrap;
+      align-items:center;
     }
     .submit-row .btn{ flex: 1; }
-    .submit-row .btn.primary{ flex: 1.2; }
 
     .notice{
       margin-top: 12px;
@@ -287,66 +235,22 @@
       border: 1px solid rgba(255,255,255,.10);
       font-size: .92rem;
     }
-    .notice.ok{
-      border-color: rgba(76,175,80,.35);
-      background: rgba(76,175,80,.18);
-      color: #eaf7ec;
-    }
-    .notice.warn{
-      border-color: rgba(255,193,7,.35);
-      background: rgba(255,193,7,.18);
-      color: #fff7de;
-    }
-
-    .channels{
-      background: rgba(0,0,0,.20);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .channels .row{
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .channels .row:last-child{ border-bottom:none; }
-    .ic{
-      width: 36px; height: 36px;
-      border-radius: 12px;
-      display:flex; align-items:center; justify-content:center;
-      background: rgba(212,175,55,.12);
-      border: 1px solid rgba(212,175,55,.25);
-      color: var(--gold);
-      font-weight:900;
-    }
-    .channels .row .rtitle{
-      margin: 0;
-      font-weight: 800;
-      letter-spacing:.3px;
-      color: var(--text);
-      font-size: .95rem;
-    }
-    .channels .row .rtext{ margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+    .notice.ok{ border-color: rgba(76,175,80,.35); background: var(--ok); color: #eaf7ec; }
+    .notice.warn{ border-color: rgba(255,193,7,.35); background: var(--warn); color: #fff7de; }
+    .notice.bad{ border-color: rgba(244,67,54,.35); background: var(--bad); color: #ffeaea; }
 
     footer{
+      margin-top: 18px;
       border-top: 1px solid rgba(255,255,255,.06);
-      padding: 22px 0 40px;
+      padding: 16px 0 28px;
       color: var(--muted2);
       font-size: .9rem;
+      text-align:center;
     }
-    .foot{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      align-items:center;
-    }
-    .foot .links{ display:flex; gap:14px; flex-wrap:wrap; }
 
-    @media (max-width: 900px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .services{ grid-template-columns: 1fr; }
-      .contact-grid{ grid-template-columns: 1fr; }
-      .nav{ display:none; }
+    @media (max-width: 640px){
+      .topbar .wrap{ flex-direction: column; align-items: stretch; }
+      .brand{ justify-content: center; }
     }
   </style>
 </head>
@@ -357,120 +261,140 @@
       <div class="brand">
         <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" alt="UNTD Financial Group">
         <div>
-          <div class="t1">UNTD Financial Group</div>
-          <div class="t2">Sitio informativo • USA</div>
+          <div class="t1">UNTD FINANCIAL GROUP</div>
+          <div class="t2">Formulario oficial • USA</div>
         </div>
       </div>
 
-      <div class="nav">
-        <a href="#servicios">Servicios</a>
-        <a href="/contact.html">Solicitar información</a>
-        <a href="/privacy.html">Privacidad</a>
-        <a href="/terms.html">Términos</a>
-      </div>
-
-      <a class="btn primary" href="/contact.html">Solicitar información</a>
+      <a class="btn" href="https://www.untd.site/">Volver al inicio</a>
     </div>
   </div>
 
   <main class="wrap">
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="panel">
-          <h1>Manuel Hernández</h1>
-          <p class="subtitle">Agente de Seguros • UNTD Financial Group</p>
+    <div class="panel">
+      <h1>Solicitar información</h1>
+      <p class="hint">
+        Dejanos tus datos y te contactaremos. El consentimiento para SMS es <strong>opcional</strong>.
+        Si no aceptás, igual podemos responderte por email o teléfono, sin enviarte SMS.
+      </p>
 
-          <div class="trust">
-            <b>Importante:</b> este sitio es informativo. No solicitamos contraseñas, datos bancarios ni números de tarjeta.
-            Si necesitás asistencia, usá únicamente los canales oficiales mostrados aquí.
+      <!-- ✅ FORMULARIO con CTA verificable (navega a /thanks.html) -->
+      <form id="leadForm" action="/thanks.html" method="GET">
+        <label for="fullName">Nombre completo *</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Tu nombre completo" autocomplete="name" required>
+
+        <label for="phone">Teléfono *</label>
+        <input id="phone" name="phone" type="tel" placeholder="+1 (XXX) XXX-XXXX" autocomplete="tel" required>
+
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" placeholder="tu@email.com" autocomplete="email" required>
+
+        <div class="consentBox" aria-live="polite">
+          <div class="title">Información sobre mensajes SMS</div>
+          
+          <div style="margin-bottom: 14px; color: #d9d9d9;">
+            Al marcar la casilla a continuación, aceptás recibir <strong>mensajes SMS informativos</strong> de 
+            <strong>UNTD Financial Group</strong> relacionados con tu consulta al número de teléfono proporcionado.
           </div>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="/contact.html">Solicitar información</a>
-            <a class="btn" href="/privacy.html">Política de Privacidad</a>
-            <a class="btn" href="/terms.html">Términos</a>
-            <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
+          <div class="disclosure">
+            <div class="disclosure-title">Avisos importantes (requeridos por ley):</div>
+            <ul>
+              <li><strong>Message frequency may vary</strong> (la frecuencia de mensajes puede variar)</li>
+              <li><strong>Message &amp; data rates may apply</strong> (pueden aplicar tarifas de mensajes y datos)</li>
+              <li>Respondé <strong>STOP</strong> para cancelar en cualquier momento</li>
+              <li>Respondé <strong>HELP</strong> para obtener ayuda</li>
+            </ul>
+          </div>
+
+          <!-- ✅ Checkbox EXPLÍCITO pero NO obligatorio -->
+          <div class="consentLine">
+            <input id="smsConsent" name="smsConsent" type="checkbox" />
+            <label for="smsConsent" class="consentText">
+              <strong>Acepto recibir mensajes SMS informativos de UNTD Financial Group al número proporcionado.</strong>
+              <span class="optional">(Opcional - No es necesario para enviar el formulario)</span>
+            </label>
+          </div>
+
+          <div class="consentLinks">
+            <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidad</a>
+            <a href="/terms.html" target="_blank" rel="noopener">Términos del Servicio</a>
+          </div>
+
+          <div class="mini">
+            <span>Para cancelar: Respondé <strong>STOP</strong></span>
+            <span>Para ayuda: Respondé <strong>HELP</strong></span>
           </div>
         </div>
 
-        <div class="quick">
-          <div class="qcard">
-            <p class="qtitle">Atención</p>
-            <p class="qline">Coordinación de contacto y seguimiento de consultas.</p>
-          </div>
-          <div class="qcard">
-            <p class="qtitle">Transparencia</p>
-            <p class="qline">Mensajes SMS <b>informativos</b>. Baja con <b>STOP</b>.</p>
-          </div>
-          <div class="qcard">
-            <p class="qtitle">Privacidad</p>
-            <p class="qline">Ver <b><a href="/privacy.html">Política de Privacidad</a></b> y <b><a href="/terms.html">Términos</a></b>.</p>
-          </div>
+        <div class="submit-row">
+          <button id="submitBtn" class="btn primary" type="submit">Solicitar información</button>
+          <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
         </div>
-      </div>
-    </section>
 
-    <section id="servicios">
-      <div class="section-title">Servicios</div>
-      <div class="services">
-        <div class="card">
-          <h3>Seguros de Vida</h3>
-          <p>Opciones de protección y respaldo económico para tu familia.</p>
-          <div class="pill">Información • Coordinación • Seguimiento</div>
+        <div id="noticeBad" class="notice bad">
+          ❌ Hubo un problema al enviar el formulario. Probá de nuevo o contactanos por WhatsApp.
         </div>
-        <div class="card">
-          <h3>Planes de Retiro</h3>
-          <p>Planificación orientada a objetivos y necesidades personales.</p>
-          <div class="pill">Informativo • No promocional</div>
-        </div>
-        <div class="card">
-          <h3>Gastos Médicos</h3>
-          <p>Alternativas y coberturas según tu situación.</p>
-          <div class="pill">Consulta • Recordatorios • Citas</div>
-        </div>
-      </div>
-    </section>
-
+      </form>
+    </div>
 
     <footer>
-      <div class="foot">
-        <div>© <span id="year"></span> UNTD Financial Group</div>
-        <div class="links">
-          <a href="/privacy.html">Política de Privacidad</a>
-          <a href="/terms.html">Términos</a>
-          <a href="/contact.html">Solicitar información</a>
-        </div>
-      </div>
+      © <span id="year"></span> UNTD Financial Group •
+      <a href="/privacy.html">Privacidad</a> •
+      <a href="/terms.html">Términos</a>
     </footer>
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/rZKQk3pCDhbwEBZbBr9m/webhook-trigger/d8c6aced-1eca-4974-ad36-b7a0e52bde63";
     const form = document.getElementById("leadForm");
-    const noticeOk = document.getElementById("noticeOk");
-    const noticeWarn = document.getElementById("noticeWarn");
-    const smsConsent = document.getElementById("smsConsent");
+    const submitBtn = document.getElementById("submitBtn");
+    const noticeBad = document.getElementById("noticeBad");
 
-    function hideNotices(){
-      noticeOk.style.display = "none";
-      noticeWarn.style.display = "none";
+    function showError(msg){
+      noticeBad.textContent = msg || "❌ Hubo un problema al enviar el formulario. Probá de nuevo o contactanos por WhatsApp.";
+      noticeBad.style.display = "block";
     }
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      hideNotices();
+    function basicValidate(){
+      const fullName = document.getElementById("fullName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      if (!fullName || !phone || !email) return false;
+      if (!/^\S+@\S+\.\S+$/.test(email)) return false;
+      return true;
+    }
 
-      if (!smsConsent.checked) {
-        noticeWarn.style.display = "block";
+    form.addEventListener("submit", (event) => {
+      noticeBad.style.display = "none";
+
+      if (!basicValidate()){
+        showError("❌ Revisá tus datos (nombre, teléfono y email son obligatorios).");
+        event.preventDefault();
         return;
       }
 
-      noticeOk.style.display = "block";
-      setTimeout(() => {
-        hideNotices();
-        form.reset();
-      }, 5500);
+      submitBtn.disabled = true;
+
+      const payload = {
+        full_name: document.getElementById("fullName").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        sms_consent: !!document.getElementById("smsConsent").checked,
+        page_url: window.location.href,
+        timestamp_utc: new Date().toISOString()
+      };
+
+      try{
+        const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
+        navigator.sendBeacon(WEBHOOK_URL, blob);
+      } catch (e){
+        console.log("sendBeacon failed", e);
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   </script>
 </body>
