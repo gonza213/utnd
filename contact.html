@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Solicitar información | UNTD Financial Group</title>
-  <meta name="description" content="Formulario de contacto oficial. Solicitud de información y consentimiento opcional para SMS informativos." />
+  <title>Contact UNTD Financial Group | Request Information</title>
+  <meta name="description" content="Official contact form for UNTD Financial Group. Request information and optionally consent to receive SMS updates about your inquiry." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://www.untd.site/contact.html" />
   <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
@@ -129,45 +129,91 @@
     }
 
     .consentBox{
-      margin-top: 14px;
-      padding: 14px 14px;
+      margin-top: 16px;
+      padding: 18px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.30);
       color: #d7d7dc;
-      font-size: .92rem;
-      line-height: 1.55;
+      font-size: .93rem;
+      line-height: 1.65;
+    }
+    .consentBox .title{
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin: 0 0 12px;
+      letter-spacing: .4px;
+    }
+    .disclosure{
+      margin-bottom: 14px;
+      padding: 12px;
+      background: rgba(255,193,7,.08);
+      border-radius: 10px;
+      border-left: 3px solid var(--gold);
+    }
+    .disclosure-title{
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .disclosure ul{
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+    .disclosure li{
+      margin: 4px 0;
+      color: var(--text);
     }
     .consentLine{
       display:flex;
-      gap: 10px;
+      gap: 12px;
       align-items:flex-start;
-      margin-top: 10px;
+      margin-top: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,.04);
+      border-radius: 10px;
     }
     .consentLine input{
       margin-top: 4px;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       accent-color: var(--gold);
       cursor: pointer;
       flex: 0 0 auto;
     }
-    .consentText{ margin: 0; }
-    .consentText b{ color: var(--text); }
+    .consentText{ 
+      margin: 0;
+      line-height: 1.6;
+    }
+    .consentText strong{ color: var(--text); font-weight: 700; }
+    .optional{
+      display: inline-block;
+      margin-left: 6px;
+      padding: 2px 8px;
+      background: rgba(255,193,7,.15);
+      border-radius: 4px;
+      font-size: .85rem;
+      font-style: italic;
+      color: var(--gold2);
+    }
 
     .consentLinks{
-      margin-top: 10px;
+      margin-top: 12px;
       display:flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
       font-weight: 700;
+      font-size: .9rem;
     }
     .mini{
-      margin-top: 10px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.08);
       color: var(--muted2);
-      font-size: .85rem;
+      font-size: .88rem;
       display:flex;
-      gap: 10px;
+      gap: 14px;
       flex-wrap: wrap;
       justify-content: space-between;
     }
@@ -175,7 +221,7 @@
     .submit-row{
       display:flex;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 18px;
       flex-wrap: wrap;
       align-items:center;
     }
@@ -201,6 +247,11 @@
       font-size: .9rem;
       text-align:center;
     }
+
+    @media (max-width: 640px){
+      .topbar .wrap{ flex-direction: column; align-items: stretch; }
+      .brand{ justify-content: center; }
+    }
   </style>
 </head>
 
@@ -211,75 +262,86 @@
         <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" alt="UNTD Financial Group">
         <div>
           <div class="t1">UNTD FINANCIAL GROUP</div>
-          <div class="t2">Formulario oficial • USA</div>
+          <div class="t2">Official Contact Form • USA</div>
         </div>
       </div>
 
-      <a class="btn" href="https://www.untd.site/">Volver al inicio</a>
+      <a class="btn" href="https://www.untd.site/">Back to Home</a>
     </div>
   </div>
 
   <main class="wrap">
     <div class="panel">
-      <h1>Solicitar información</h1>
+      <h1>Request Information</h1>
       <p class="hint">
-        Dejanos tus datos y te contactaremos. El consentimiento para SMS es <b>opcional</b>.
-        (Si no aceptás, igual podemos responderte por los datos que dejaste, sin enviarte SMS).
+        Please provide your contact information. SMS consent is <strong>optional</strong>.
+        We can respond to your inquiry even if you do not opt in to SMS.
       </p>
 
-      <!-- ✅ IMPORTANTE: action real (CTA verificable sin JS) -->
+      <!-- ✅ FORM with verifiable CTA (navigates to /thanks.html) -->
       <form id="leadForm" action="/thanks.html" method="GET">
-        <label for="fullName">Nombre completo</label>
-        <input id="fullName" name="fullName" type="text" placeholder="Tu nombre" autocomplete="name" required>
+        <label for="fullName">Full Name *</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Your full name" autocomplete="name" required>
 
-        <label for="phone">Teléfono</label>
+        <label for="phone">Phone Number *</label>
         <input id="phone" name="phone" type="tel" placeholder="+1 (XXX) XXX-XXXX" autocomplete="tel" required>
 
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="tu@email.com" autocomplete="email" required>
+        <label for="email">Email Address *</label>
+        <input id="email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required>
 
         <div class="consentBox" aria-live="polite">
-          <div>
-            <b>SMS Disclosure (Informativo):</b><br>
-            Si optás por SMS, UNTD Financial Group puede enviarte <b>mensajes SMS informativos</b> relacionados con tu consulta
-            (confirmaciones, respuestas, coordinación y seguimientos). <b>Message frequency may vary.</b>
-            <b>Message &amp; data rates may apply.</b> Respondé <b>STOP</b> para cancelar o <b>HELP</b> para obtener ayuda.
+          <div class="title">SMS Consent Information</div>
+          
+          <div style="margin-bottom: 14px; color: #d9d9d9;">
+            By checking the box below, you agree to receive <strong>informational SMS messages</strong> from 
+            <strong>UNTD Financial Group</strong> related to your inquiry at the phone number provided.
           </div>
 
-          <!-- ✅ checkbox EXPLÍCITO pero NO obligatorio -->
+          <div class="disclosure">
+            <div class="disclosure-title">Important Disclosures:</div>
+            <ul>
+              <li><strong>Message frequency may vary</strong></li>
+              <li><strong>Message &amp; data rates may apply</strong></li>
+              <li>Reply <strong>STOP</strong> to unsubscribe or opt-out at any time</li>
+              <li>Reply <strong>HELP</strong> for assistance</li>
+            </ul>
+          </div>
+
+          <!-- ✅ EXPLICIT checkbox but NOT mandatory -->
           <div class="consentLine">
             <input id="smsConsent" name="smsConsent" type="checkbox" />
-            <p class="consentText">
-              <b>Acepto recibir mensajes SMS informativos</b> de UNTD Financial Group al número proporcionado. <b>(Opcional)</b>
-            </p>
+            <label for="smsConsent" class="consentText">
+              <strong>I consent to receive informational SMS messages from UNTD Financial Group at the phone number provided.</strong>
+              <span class="optional">(Optional - Not required to submit)</span>
+            </label>
           </div>
 
           <div class="consentLinks">
-            <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidad</a>
-            <a href="/terms.html" target="_blank" rel="noopener">Términos del Servicio</a>
+            <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="/terms.html" target="_blank" rel="noopener">Terms of Service</a>
           </div>
 
           <div class="mini">
-            <span>Opt-out: STOP</span>
-            <span>Help: HELP</span>
+            <span>To opt-out: Reply <strong>STOP</strong></span>
+            <span>For help: Reply <strong>HELP</strong></span>
           </div>
         </div>
 
         <div class="submit-row">
-          <button id="submitBtn" class="btn primary" type="submit">Solicitar información</button>
+          <button id="submitBtn" class="btn primary" type="submit">Submit Request</button>
           <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
         </div>
 
         <div id="noticeBad" class="notice bad">
-          ❌ Hubo un problema al enviar el formulario. Probá de nuevo o contactanos por WhatsApp.
+          ❌ There was a problem submitting the form. Please try again or contact us via WhatsApp.
         </div>
       </form>
     </div>
 
     <footer>
       © <span id="year"></span> UNTD Financial Group •
-      <a href="/privacy.html">Privacidad</a> •
-      <a href="/terms.html">Términos</a>
+      <a href="/privacy.html">Privacy</a> •
+      <a href="/terms.html">Terms</a>
     </footer>
   </main>
 
@@ -292,7 +354,7 @@
     const noticeBad = document.getElementById("noticeBad");
 
     function showError(msg){
-      noticeBad.textContent = msg || "❌ Hubo un problema al enviar el formulario. Probá de nuevo o contactanos por WhatsApp.";
+      noticeBad.textContent = msg || "❌ There was a problem submitting the form. Please try again or contact us via WhatsApp.";
       noticeBad.style.display = "block";
     }
 
@@ -305,13 +367,11 @@
       return true;
     }
 
-    form.addEventListener("submit", () => {
-      // ✅ No prevenimos el submit: dejamos que navegue a /thanks.html (CTA verificable)
+    form.addEventListener("submit", (event) => {
       noticeBad.style.display = "none";
 
       if (!basicValidate()){
-        showError("❌ Revisá tus datos (nombre, teléfono y email).");
-        // Evitar submit si está mal
+        showError("❌ Please check your information (name, phone, and email are required).");
         event.preventDefault();
         return;
       }
@@ -328,14 +388,11 @@
       };
 
       try{
-        // ✅ Ultra-compatible para auditorías: manda incluso si navega enseguida
         const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
         navigator.sendBeacon(WEBHOOK_URL, blob);
       } catch (e){
-        // si falla, no rompemos el CTA; igual llega a thanks.html
         console.log("sendBeacon failed", e);
       } finally {
-        // dejamos que el submit continúe
         submitBtn.disabled = false;
       }
     });
