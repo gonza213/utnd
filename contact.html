@@ -210,7 +210,7 @@
       <div class="brand">
         <img src="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg" alt="UNTD Financial Group">
         <div>
-          <div class="t1">UNTD Financial Group</div>
+          <div class="t1">UNTD FINANCIAL GROUP</div>
           <div class="t2">Formulario oficial • USA</div>
         </div>
       </div>
@@ -227,7 +227,8 @@
         (Si no aceptás, igual podemos responderte por los datos que dejaste, sin enviarte SMS).
       </p>
 
-      <form id="leadForm" novalidate>
+      <!-- ✅ IMPORTANTE: action real (CTA verificable sin JS) -->
+      <form id="leadForm" action="/thanks.html" method="GET">
         <label for="fullName">Nombre completo</label>
         <input id="fullName" name="fullName" type="text" placeholder="Tu nombre" autocomplete="name" required>
 
@@ -241,16 +242,15 @@
           <div>
             <b>SMS Disclosure (Informativo):</b><br>
             Si optás por SMS, UNTD Financial Group puede enviarte <b>mensajes SMS informativos</b> relacionados con tu consulta
-            (confirmaciones, respuestas y seguimientos / coordinación de cita).
+            (confirmaciones, respuestas, coordinación y seguimientos). <b>Message frequency may vary.</b>
+            <b>Message &amp; data rates may apply.</b> Respondé <b>STOP</b> para cancelar o <b>HELP</b> para obtener ayuda.
           </div>
 
-          <!-- ✅ CLAVE: checkbox OPCIONAL (NO required) + texto con keywords detectables -->
+          <!-- ✅ checkbox EXPLÍCITO pero NO obligatorio -->
           <div class="consentLine">
             <input id="smsConsent" name="smsConsent" type="checkbox" />
             <p class="consentText">
-              <b>Acepto recibir mensajes SMS informativos</b> de UNTD Financial Group al número proporcionado.
-              <b>Message frequency may vary.</b> <b>Message &amp; data rates may apply.</b>
-              Respondé <b>STOP</b> para cancelar o <b>HELP</b> para obtener ayuda. <b>(Opcional)</b>
+              <b>Acepto recibir mensajes SMS informativos</b> de UNTD Financial Group al número proporcionado. <b>(Opcional)</b>
             </p>
           </div>
 
@@ -270,15 +270,6 @@
           <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
         </div>
 
-        <div id="noticeOk" class="notice ok">
-          ✅ Listo. Recibimos tu solicitud y te contactaremos pronto.
-        </div>
-        <div id="noticeSms" class="notice ok">
-          ✅ Además, confirmamos tu consentimiento para recibir SMS informativos.
-        </div>
-        <div id="noticeNoSms" class="notice warn">
-          ℹ️ No seleccionaste SMS. Te contactaremos por los datos que dejaste (sin enviarte mensajes SMS).
-        </div>
         <div id="noticeBad" class="notice bad">
           ❌ Hubo un problema al enviar el formulario. Probá de nuevo o contactanos por WhatsApp.
         </div>
@@ -296,22 +287,13 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/rZKQk3pCDhbwEBZbBr9m/webhook-trigger/d8c6aced-1eca-4974-ad36-b7a0e52bde63";
-
     const form = document.getElementById("leadForm");
     const submitBtn = document.getElementById("submitBtn");
-
-    const smsConsent = document.getElementById("smsConsent");
-
-    const noticeOk = document.getElementById("noticeOk");
-    const noticeSms = document.getElementById("noticeSms");
-    const noticeNoSms = document.getElementById("noticeNoSms");
     const noticeBad = document.getElementById("noticeBad");
 
-    function hideAll(){
-      noticeOk.style.display = "none";
-      noticeSms.style.display = "none";
-      noticeNoSms.style.display = "none";
-      noticeBad.style.display = "none";
+    function showError(msg){
+      noticeBad.textContent = msg || "❌ Hubo un problema al enviar el formulario. Probá de nuevo o contactanos por WhatsApp.";
+      noticeBad.style.display = "block";
     }
 
     function basicValidate(){
@@ -319,18 +301,18 @@
       const phone = document.getElementById("phone").value.trim();
       const email = document.getElementById("email").value.trim();
       if (!fullName || !phone || !email) return false;
-      // validación mínima de email
       if (!/^\S+@\S+\.\S+$/.test(email)) return false;
       return true;
     }
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      hideAll();
+    form.addEventListener("submit", () => {
+      // ✅ No prevenimos el submit: dejamos que navegue a /thanks.html (CTA verificable)
+      noticeBad.style.display = "none";
 
       if (!basicValidate()){
-        noticeBad.textContent = "❌ Revisá tus datos (nombre, teléfono y email) e intentá de nuevo.";
-        noticeBad.style.display = "block";
+        showError("❌ Revisá tus datos (nombre, teléfono y email).");
+        // Evitar submit si está mal
+        event.preventDefault();
         return;
       }
 
@@ -340,43 +322,20 @@
         full_name: document.getElementById("fullName").value.trim(),
         phone: document.getElementById("phone").value.trim(),
         email: document.getElementById("email").value.trim(),
-
-        // ✅ opt-in explícito SOLO si tilda el checkbox
-        sms_consent: !!smsConsent.checked,
-
-        // ✅ pruebas útiles para verificación / auditoría
-        consent_text_shown: "Message frequency may vary. Message & data rates may apply. Reply STOP to opt out or HELP for assistance.",
+        sms_consent: !!document.getElementById("smsConsent").checked,
         page_url: window.location.href,
-        user_agent: navigator.userAgent,
         timestamp_utc: new Date().toISOString()
       };
 
       try{
-        const res = await fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if (!res.ok) throw new Error("Webhook error: " + res.status);
-
-        // ✅ éxito (CTA verificable)
-        noticeOk.style.display = "block";
-        if (smsConsent.checked) {
-          noticeSms.style.display = "block";
-        } else {
-          noticeNoSms.style.display = "block";
-        }
-
-        setTimeout(() => {
-          hideAll();
-          form.reset();
-        }, 6500);
-
-      } catch(err){
-        console.error(err);
-        noticeBad.style.display = "block";
+        // ✅ Ultra-compatible para auditorías: manda incluso si navega enseguida
+        const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
+        navigator.sendBeacon(WEBHOOK_URL, blob);
+      } catch (e){
+        // si falla, no rompemos el CTA; igual llega a thanks.html
+        console.log("sendBeacon failed", e);
       } finally {
+        // dejamos que el submit continúe
         submitBtn.disabled = false;
       }
     });
