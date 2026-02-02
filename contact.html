@@ -21,10 +21,6 @@
       --gold2:#f1c40f;
       --shadow: 0 18px 50px rgba(0,0,0,.55);
       --radius:16px;
-      --line: rgba(255,255,255,.10);
-      --ok: rgba(76, 175, 80, .18);
-      --warn: rgba(255, 193, 7, .18);
-      --bad: rgba(244, 67, 54, .18);
     }
 
     *{ box-sizing:border-box; }
@@ -110,9 +106,9 @@
       letter-spacing:.8px;
       font-size: 1.35rem;
     }
-    .hint{ margin: 0 0 14px; color: var(--muted); }
+    .hint{ margin: 0 0 14px; color: var(--muted); font-size: .95rem; }
 
-    label{ display:block; font-size: .9rem; color: #d7d7dc; margin: 10px 0 6px; }
+    label{ display:block; font-size: .9rem; color: #d7d7dc; margin: 14px 0 6px; font-weight: 600; }
     input[type="text"], input[type="email"], input[type="tel"]{
       width:100%;
       padding: 12px 12px;
@@ -128,56 +124,24 @@
       box-shadow: 0 0 0 4px rgba(212,175,55,.12);
     }
 
+    /* ✅ Consent box SIMPLE como el ejemplo aprobado */
     .consentBox{
-      margin-top: 16px;
-      padding: 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.30);
-      color: #d7d7dc;
-      font-size: .93rem;
-      line-height: 1.65;
-    }
-    .consentBox .title{
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--gold);
-      margin: 0 0 12px;
-      letter-spacing: .4px;
-    }
-    .disclosure{
-      margin-bottom: 14px;
-      padding: 12px;
-      background: rgba(255,193,7,.08);
-      border-radius: 10px;
-      border-left: 3px solid var(--gold);
-    }
-    .disclosure-title{
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .disclosure ul{
-      margin: 8px 0 0;
-      padding-left: 20px;
-    }
-    .disclosure li{
-      margin: 4px 0;
-      color: var(--text);
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
     }
     .consentLine{
       display:flex;
       gap: 12px;
       align-items:flex-start;
-      margin-top: 14px;
-      padding: 14px;
-      background: rgba(255,255,255,.04);
-      border-radius: 10px;
+      margin-bottom: 12px;
     }
     .consentLine input{
       margin-top: 4px;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       accent-color: var(--gold);
       cursor: pointer;
       flex: 0 0 auto;
@@ -185,37 +149,38 @@
     .consentText{ 
       margin: 0;
       line-height: 1.6;
+      color: #d9d9d9;
+      font-size: .92rem;
     }
-    .consentText strong{ color: var(--text); font-weight: 700; }
-    .optional{
-      display: inline-block;
-      margin-left: 6px;
-      padding: 2px 8px;
-      background: rgba(255,193,7,.15);
-      border-radius: 4px;
-      font-size: .85rem;
-      font-style: italic;
-      color: var(--gold2);
+    .consentText strong{ 
+      color: var(--text); 
+      font-weight: 600; 
     }
-
-    .consentLinks{
-      margin-top: 12px;
-      display:flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      font-weight: 700;
+    .privacyLink{
+      margin: 10px 0;
       font-size: .9rem;
     }
-    .mini{
-      margin-top: 12px;
-      padding-top: 12px;
+    .privacyLink a{
+      color: var(--gold);
+      text-decoration: underline;
+    }
+    .optoutInfo{
+      margin-top: 10px;
+      padding-top: 10px;
       border-top: 1px solid rgba(255,255,255,.08);
       color: var(--muted2);
       font-size: .88rem;
-      display:flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      text-align: center;
+    }
+
+    .securityNote{
+      margin-top: 14px;
+      padding: 12px;
+      background: rgba(0,0,0,.20);
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: .88rem;
+      text-align: center;
     }
 
     .submit-row{
@@ -235,9 +200,7 @@
       border: 1px solid rgba(255,255,255,.10);
       font-size: .92rem;
     }
-    .notice.ok{ border-color: rgba(76,175,80,.35); background: var(--ok); color: #eaf7ec; }
-    .notice.warn{ border-color: rgba(255,193,7,.35); background: var(--warn); color: #fff7de; }
-    .notice.bad{ border-color: rgba(244,67,54,.35); background: var(--bad); color: #ffeaea; }
+    .notice.bad{ border-color: rgba(244,67,54,.35); background: rgba(244,67,54,.18); color: #ffeaea; }
 
     footer{
       margin-top: 18px;
@@ -272,63 +235,44 @@
 
   <main class="wrap">
     <div class="panel">
-      <h1>Solicitar información</h1>
+      <h1>Solicitar Información</h1>
       <p class="hint">
-        Dejanos tus datos y te contactaremos. El consentimiento para SMS es <strong>opcional</strong>.
-        Si no aceptás, igual podemos responderte por email o teléfono, sin enviarte SMS.
+        Déjanos tus datos y te contactaremos para ayudarte
       </p>
 
-      <!-- ✅ FORMULARIO con CTA verificable (navega a /thanks.html) -->
-      <form id="leadForm" action="/thanks.html" method="GET">
-        <label for="fullName">Nombre completo *</label>
-        <input id="fullName" name="fullName" type="text" placeholder="Tu nombre completo" autocomplete="name" required>
+      <form id="leadForm" action="https://www.untd.site/thanks.html" method="POST">
+        <label for="fullName">Nombre completo</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Tu nombre" autocomplete="name" required>
 
-        <label for="phone">Teléfono *</label>
+        <label for="phone">Teléfono</label>
         <input id="phone" name="phone" type="tel" placeholder="+1 (XXX) XXX-XXXX" autocomplete="tel" required>
 
-        <label for="email">Email *</label>
+        <label for="email">Email</label>
         <input id="email" name="email" type="email" placeholder="tu@email.com" autocomplete="email" required>
 
-        <div class="consentBox" aria-live="polite">
-          <div class="title">Información sobre mensajes SMS</div>
-          
-          <div style="margin-bottom: 14px; color: #d9d9d9;">
-            Al marcar la casilla a continuación, aceptás recibir <strong>mensajes SMS informativos</strong> de 
-            <strong>UNTD Financial Group</strong> relacionados con tu consulta al número de teléfono proporcionado.
-          </div>
-
-          <div class="disclosure">
-            <div class="disclosure-title">Avisos importantes (requeridos por ley):</div>
-            <ul>
-              <li><strong>Message frequency may vary</strong> (la frecuencia de mensajes puede variar)</li>
-              <li><strong>Message &amp; data rates may apply</strong> (pueden aplicar tarifas de mensajes y datos)</li>
-              <li>Respondé <strong>STOP</strong> para cancelar en cualquier momento</li>
-              <li>Respondé <strong>HELP</strong> para obtener ayuda</li>
-            </ul>
-          </div>
-
-          <!-- ✅ Checkbox EXPLÍCITO pero NO obligatorio -->
+        <div class="consentBox">
           <div class="consentLine">
             <input id="smsConsent" name="smsConsent" type="checkbox" />
             <label for="smsConsent" class="consentText">
-              <strong>Acepto recibir mensajes SMS informativos de UNTD Financial Group al número proporcionado.</strong>
-              <span class="optional">(Opcional - No es necesario para enviar el formulario)</span>
+              Acepto recibir <strong>mensajes SMS informativos</strong> de UNTD Financial Group relacionados con mi consulta (confirmaciones y seguimientos). Pueden aplicar tarifas de mensajes y datos. La frecuencia puede variar. Responde <strong>STOP</strong> para cancelar o <strong>HELP</strong> para obtener ayuda.
             </label>
           </div>
 
-          <div class="consentLinks">
-            <a href="/privacy.html" target="_blank" rel="noopener">Política de Privacidad</a>
-            <a href="/terms.html" target="_blank" rel="noopener">Términos del Servicio</a>
+          <div class="privacyLink">
+            <a href="/privacy.html" target="_blank" rel="noopener">Leer Política de Privacidad</a>
           </div>
 
-          <div class="mini">
-            <span>Para cancelar: Respondé <strong>STOP</strong></span>
-            <span>Para ayuda: Respondé <strong>HELP</strong></span>
+          <div class="optoutInfo">
+            Opt-out: STOP • Help: HELP
           </div>
         </div>
 
+        <div class="securityNote">
+          🔒 Tu información está segura. Solo la usamos para enviarte tu resultado y ayudarte si calificas.
+        </div>
+
         <div class="submit-row">
-          <button id="submitBtn" class="btn primary" type="submit">Solicitar información</button>
+          <button id="submitBtn" class="btn primary" type="submit">Solicitar Información</button>
           <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
         </div>
 
@@ -368,15 +312,16 @@
     }
 
     form.addEventListener("submit", (event) => {
+      event.preventDefault();
       noticeBad.style.display = "none";
 
       if (!basicValidate()){
         showError("❌ Revisá tus datos (nombre, teléfono y email son obligatorios).");
-        event.preventDefault();
         return;
       }
 
       submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
 
       const payload = {
         full_name: document.getElementById("fullName").value.trim(),
@@ -392,9 +337,11 @@
         navigator.sendBeacon(WEBHOOK_URL, blob);
       } catch (e){
         console.log("sendBeacon failed", e);
-      } finally {
-        submitBtn.disabled = false;
       }
+      
+      setTimeout(() => {
+        window.location.href = "https://www.untd.site/thanks.html";
+      }, 300);
     });
   </script>
 </body>
