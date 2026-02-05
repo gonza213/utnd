@@ -124,7 +124,6 @@
       box-shadow: 0 0 0 4px rgba(212,175,55,.12);
     }
 
-    /* ✅ Consent box SIMPLE como el ejemplo aprobado */
     .consentBox{
       margin-top: 20px;
       padding: 16px;
@@ -192,16 +191,6 @@
     }
     .submit-row .btn{ flex: 1; }
 
-    .notice{
-      margin-top: 12px;
-      display:none;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      font-size: .92rem;
-    }
-    .notice.bad{ border-color: rgba(244,67,54,.35); background: rgba(244,67,54,.18); color: #ffeaea; }
-
     footer{
       margin-top: 18px;
       border-top: 1px solid rgba(255,255,255,.06);
@@ -240,7 +229,8 @@
         Déjanos tus datos y te contactaremos para ayudarte
       </p>
 
-      <form id="leadForm" action="https://www.untd.site/thanks.html" method="POST">
+      <!-- ✅ FORM funciona CON y SIN JavaScript -->
+      <form id="leadForm" action="https://www.untd.site/thanks.html" method="GET">
         <label for="fullName">Nombre completo</label>
         <input id="fullName" name="fullName" type="text" placeholder="Tu nombre" autocomplete="name" required>
 
@@ -275,10 +265,6 @@
           <button id="submitBtn" class="btn primary" type="submit">Solicitar Información</button>
           <a class="btn" href="https://wa.me/17542619423" target="_blank" rel="noopener">WhatsApp</a>
         </div>
-
-        <div id="noticeBad" class="notice bad">
-          ❌ Hubo un problema al enviar el formulario. Probá de nuevo o contactanos por WhatsApp.
-        </div>
       </form>
     </div>
 
@@ -294,35 +280,9 @@
 
     const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/rZKQk3pCDhbwEBZbBr9m/webhook-trigger/d8c6aced-1eca-4974-ad36-b7a0e52bde63";
     const form = document.getElementById("leadForm");
-    const submitBtn = document.getElementById("submitBtn");
-    const noticeBad = document.getElementById("noticeBad");
 
-    function showError(msg){
-      noticeBad.textContent = msg || "❌ Hubo un problema al enviar el formulario. Probá de nuevo o contactanos por WhatsApp.";
-      noticeBad.style.display = "block";
-    }
-
-    function basicValidate(){
-      const fullName = document.getElementById("fullName").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const email = document.getElementById("email").value.trim();
-      if (!fullName || !phone || !email) return false;
-      if (!/^\S+@\S+\.\S+$/.test(email)) return false;
-      return true;
-    }
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      noticeBad.style.display = "none";
-
-      if (!basicValidate()){
-        showError("❌ Revisá tus datos (nombre, teléfono y email son obligatorios).");
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Enviando...";
-
+    // ✅ CRÍTICO: Este código permite que el form funcione CON y SIN JavaScript
+    form.addEventListener("submit", function(event) {
       const payload = {
         full_name: document.getElementById("fullName").value.trim(),
         phone: document.getElementById("phone").value.trim(),
@@ -332,6 +292,8 @@
         timestamp_utc: new Date().toISOString()
       };
 
+      // ✅ Enviar al webhook con sendBeacon
+      // sendBeacon funciona incluso cuando la página se está descargando
       try{
         const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
         navigator.sendBeacon(WEBHOOK_URL, blob);
@@ -339,9 +301,10 @@
         console.log("sendBeacon failed", e);
       }
       
-      setTimeout(() => {
-        window.location.href = "https://www.untd.site/thanks.html";
-      }, 300);
+      // ✅ IMPORTANTE: NO hacer event.preventDefault()
+      // ✅ IMPORTANTE: NO hacer window.location.href
+      // Esto permite que el form haga su submit natural a thanks.html
+      // El bot de GHL puede verificar el CTA sin JavaScript
     });
   </script>
 </body>
