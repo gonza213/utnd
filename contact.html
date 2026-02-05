@@ -7,7 +7,7 @@
   <title>Solicitar información | UNTD Financial Group</title>
   <meta name="description" content="Formulario de contacto oficial. Solicitud de información y consentimiento opcional para SMS informativos." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://www.untd.site/contact.html" />
+  <link rel="canonical" href="https://utnd.vercel.app/contact.html" />
   <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dazfmv5ls/image/upload/v1768431298/600214178_4248395572100004_2075737591426130777_n_ychkfe.jpg">
 
   <style>
@@ -131,6 +131,23 @@
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(255,255,255,.08);
     }
+    
+    .messageTypeHeader{
+      margin-bottom: 14px;
+      padding: 12px;
+      background: rgba(212,175,55,.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 8px;
+    }
+    .messageTypeHeader p{
+      margin: 0;
+      font-size: .9rem;
+      color: #d9d9d9;
+    }
+    .messageTypeHeader strong{
+      color: var(--gold);
+    }
+    
     .consentLine{
       display:flex;
       gap: 12px;
@@ -182,15 +199,6 @@
       text-align: center;
     }
 
-    .submit-row{
-      display:flex;
-      gap: 10px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
-    .submit-row .btn{ flex: 1; }
-
     footer{
       margin-top: 18px;
       border-top: 1px solid rgba(255,255,255,.06);
@@ -218,7 +226,7 @@
         </div>
       </div>
 
-      <a class="btn" href="https://www.untd.site/">Volver al inicio</a>
+      <a class="btn" href="https://utnd.vercel.app/">Volver al inicio</a>
     </div>
   </div>
 
@@ -230,7 +238,7 @@
       </p>
 
       <!-- ✅ FORM con POST a API de Vercel -->
-      <form id="leadForm" action="/api/submit" method="POST">
+      <form id="leadForm" action="https://utnd.vercel.app/api/submit" method="POST">
         <label for="fullName">Nombre completo</label>
         <input id="fullName" name="fullName" type="text" placeholder="Tu nombre" autocomplete="name" required>
 
@@ -241,15 +249,20 @@
         <input id="email" name="email" type="email" placeholder="tu@email.com" autocomplete="email" required>
 
         <div class="consentBox">
+          <!-- ✅ MESSAGE TYPE EXPLÍCITO -->
+          <div class="messageTypeHeader">
+            <p><strong>Tipo de mensaje:</strong> Mensajes SMS informativos relacionados con tu consulta</p>
+          </div>
+
           <div class="consentLine">
             <input id="smsConsent" name="smsConsent" type="checkbox" />
             <label for="smsConsent" class="consentText">
-              Acepto recibir <strong>mensajes SMS informativos</strong> de UNTD Financial Group relacionados con mi consulta (confirmaciones y seguimientos). Pueden aplicar tarifas de mensajes y datos. La frecuencia puede variar. Responde <strong>STOP</strong> para cancelar o <strong>HELP</strong> para obtener ayuda.
+              Acepto recibir <strong>mensajes SMS informativos</strong> de UNTD Financial Group relacionados con mi consulta (confirmaciones y seguimientos). <strong>La frecuencia de mensajes puede variar.</strong> <strong>Pueden aplicar tarifas de mensajes y datos.</strong> Responde <strong>STOP</strong> para cancelar o <strong>HELP</strong> para obtener ayuda.
             </label>
           </div>
 
           <div class="privacyLink">
-            <a href="/privacy.html" target="_blank" rel="noopener">Leer Política de Privacidad</a>
+            <a href="https://utnd.vercel.app/privacy.html" target="_blank" rel="noopener">Leer Política de Privacidad</a>
           </div>
 
           <div class="optoutInfo">
@@ -261,23 +274,22 @@
           🔒 Tu información está segura. Solo la usamos para enviarte tu resultado y ayudarte si calificas.
         </div>
 
-  <div style="margin-top: 18px;">
-  <button id="submitBtn" class="btn primary" type="submit" style="width: 100%;">Solicitar Información</button>
-</div>
+        <div style="margin-top: 18px;">
+          <button id="submitBtn" class="btn primary" type="submit" style="width: 100%;">Solicitar Información</button>
+        </div>
       </form>
     </div>
 
     <footer>
       © <span id="year"></span> UNTD Financial Group •
-      <a href="/privacy.html">Privacidad</a> •
-      <a href="/terms.html">Términos</a>
+      <a href="https://utnd.vercel.app/privacy.html">Privacidad</a> •
+      <a href="https://utnd.vercel.app/terms.html">Términos</a>
     </footer>
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
     
-    // ✅ Opcional: Deshabilitar botón durante el submit para evitar doble envío
     const form = document.getElementById("leadForm");
     const submitBtn = document.getElementById("submitBtn");
     
