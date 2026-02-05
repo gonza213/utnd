@@ -8,13 +8,12 @@ export default async function handler(req, res) {
 
     // Validación básica
     if (!fullName || !phone || !email) {
-      // ⚠️ Si faltan datos, SÍ mostrar error
       return res.status(400).send(`
         <!DOCTYPE html>
         <html>
         <head>
           <title>Error | UNTD Financial Group</title>
-          <meta http-equiv="refresh" content="3;url=/contact.html">
+          <meta http-equiv="refresh" content="3;url=https://utnd.vercel.app/contact.html">
           <style>
             body { 
               font-family: system-ui; 
@@ -46,7 +45,7 @@ export default async function handler(req, res) {
       phone: phone,
       email: email,
       sms_consent: smsConsent === 'on' || smsConsent === true,
-      page_url: req.headers.referer || 'https://www.untd.site/contact.html',
+      page_url: req.headers.referer || 'https://utnd.vercel.app/contact.html',
       timestamp_utc: new Date().toISOString()
     };
 
@@ -57,23 +56,17 @@ export default async function handler(req, res) {
       await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        timeout: 5000 // 5 segundos máximo
+        body: JSON.stringify(payload)
       });
     } catch (webhookError) {
-      // ⚠️ Si el webhook falla, loguear pero NO romper el flujo
       console.error('Webhook failed (continuing anyway):', webhookError);
-      // Podrías enviar esto a un servicio de logging (Sentry, LogRocket, etc.)
     }
 
-    // ✅ SIEMPRE redirigir a thanks.html (el usuario completó el form correctamente)
-    return res.redirect(307, '/thanks.html');
+    // ✅ SIEMPRE redirigir a thanks.html
+    return res.redirect(307, 'https://utnd.vercel.app/thanks.html');
 
   } catch (error) {
     console.error('Unexpected error:', error);
-    
-    // ⚠️ Si hay un error inesperado, IGUAL redirigir
-    // (Para que el CTA sea verificable por GHL)
-    return res.redirect(307, '/thanks.html');
+    return res.redirect(307, 'https://utnd.vercel.app/thanks.html');
   }
 }
