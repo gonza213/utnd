@@ -229,8 +229,8 @@
         Déjanos tus datos y te contactaremos para ayudarte
       </p>
 
-      <!-- ✅ FORM funciona CON y SIN JavaScript -->
-      <form id="leadForm" action="https://www.untd.site/thanks.html" method="GET">
+      <!-- ✅ FORM con POST a API de Vercel -->
+      <form id="leadForm" action="/api/submit" method="POST">
         <label for="fullName">Nombre completo</label>
         <input id="fullName" name="fullName" type="text" placeholder="Tu nombre" autocomplete="name" required>
 
@@ -277,34 +277,14 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/rZKQk3pCDhbwEBZbBr9m/webhook-trigger/d8c6aced-1eca-4974-ad36-b7a0e52bde63";
+    
+    // ✅ Opcional: Deshabilitar botón durante el submit para evitar doble envío
     const form = document.getElementById("leadForm");
-
-    // ✅ CRÍTICO: Este código permite que el form funcione CON y SIN JavaScript
-    form.addEventListener("submit", function(event) {
-      const payload = {
-        full_name: document.getElementById("fullName").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        sms_consent: !!document.getElementById("smsConsent").checked,
-        page_url: window.location.href,
-        timestamp_utc: new Date().toISOString()
-      };
-
-      // ✅ Enviar al webhook con sendBeacon
-      // sendBeacon funciona incluso cuando la página se está descargando
-      try{
-        const blob = new Blob([JSON.stringify(payload)], { type: "application/json" });
-        navigator.sendBeacon(WEBHOOK_URL, blob);
-      } catch (e){
-        console.log("sendBeacon failed", e);
-      }
-      
-      // ✅ IMPORTANTE: NO hacer event.preventDefault()
-      // ✅ IMPORTANTE: NO hacer window.location.href
-      // Esto permite que el form haga su submit natural a thanks.html
-      // El bot de GHL puede verificar el CTA sin JavaScript
+    const submitBtn = document.getElementById("submitBtn");
+    
+    form.addEventListener("submit", function() {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
     });
   </script>
 </body>
